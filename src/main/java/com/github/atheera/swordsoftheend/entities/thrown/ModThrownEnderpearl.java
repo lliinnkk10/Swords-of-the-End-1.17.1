@@ -1,4 +1,4 @@
-package com.github.atheera.swordsoftheend.entities;
+package com.github.atheera.swordsoftheend.entities.thrown;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -17,9 +17,12 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
+@OnlyIn(Dist.CLIENT)
 public class ModThrownEnderpearl extends ThrowableItemProjectile {
 
     ThrownEnderpearl thrownEnderpearl;

@@ -2,6 +2,9 @@ package com.github.atheera.swordsoftheend.objects.items;
 
 import java.util.List;
 
+import com.github.atheera.swordsoftheend.entities.MagmaballEntity;
+import com.github.atheera.swordsoftheend.entities.thrown.ModThrownMagmaball;
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -15,7 +18,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
@@ -47,11 +49,14 @@ public class ItemSwordRuby extends ItemSword {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-		player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec*5));
+		//player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec*5));
 		player.getCooldowns().addCooldown(this, sec*30);
 		world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 		if(!world.isClientSide) {
-			Fireball
+			MagmaballEntity magmaball = new MagmaballEntity(player, 0.0d, 0.8d, 0.0d, world);
+			magmaball.setItem(ItemInit.ITEM_TIER_RUBY.get().getDefaultInstance());
+			magmaball.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 1.0f);
+			world.addFreshEntity(magmaball);
 		}
 		return super.use(world, player, hand);
 	}

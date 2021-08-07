@@ -7,7 +7,12 @@ import com.github.atheera.swordsoftheend.utils.recipe.potions.*;
 import com.github.atheera.swordsoftheend.world.OreGeneration;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.RenderProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
@@ -63,6 +68,7 @@ public class SOTE {
         BlockInit.BLOCKS.register(modEventBus);
         BlockInit.ITEMS.register(modEventBus);
         PotionInit.POTIONS.register(modEventBus);
+        EntityInit.ENTITY.register(modEventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::addFeaturesToBiomes);
@@ -98,6 +104,14 @@ public class SOTE {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> e) {
 
         }
+    }
+
+    private static void render() {
+        ItemRenderer renderItem = Minecraft.getInstance().getItemRenderer();
+       // ItemEntityRenderer itemEntityRenderer = Minecraft.getInstance().getEntityModels();
+
+        //renderItem.render();
+
     }
 
     private void registerPotions() {

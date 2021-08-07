@@ -9,6 +9,8 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemTF extends Item {
     public ItemTF(Properties p_41383_) {
         super(p_41383_);

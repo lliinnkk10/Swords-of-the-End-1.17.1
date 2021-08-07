@@ -1,6 +1,6 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
-import com.github.atheera.swordsoftheend.entities.ModThrownEnderpearl;
+import com.github.atheera.swordsoftheend.entities.thrown.ModThrownEnderpearl;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;

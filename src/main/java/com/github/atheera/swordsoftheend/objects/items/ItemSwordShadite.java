@@ -16,6 +16,8 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemSwordShadite extends ItemSword {
     public ItemSwordShadite(Tier tier, int damage, float speed, Properties properties) {
         super(tier, damage, speed, properties);

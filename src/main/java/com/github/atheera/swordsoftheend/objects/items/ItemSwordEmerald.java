@@ -19,6 +19,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemSwordEmerald extends ItemSword {
 
 	public ItemSwordEmerald(Tier tier, int damage, float speed, Properties prop) {

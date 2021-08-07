@@ -2,8 +2,9 @@ package com.github.atheera.swordsoftheend.objects.items;
 
 import java.util.List;
 
-import com.github.atheera.swordsoftheend.entities.ModThrownEnderpearl;
+import com.github.atheera.swordsoftheend.entities.thrown.ModThrownEnderpearl;
 import com.github.atheera.swordsoftheend.inits.EnchantInit;
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 
 import net.minecraft.ChatFormatting;
@@ -16,7 +17,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -49,7 +49,7 @@ public class ItemSwordEnd extends ItemSword {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-		ItemStack stack = new ItemStack(Items.ENDER_PEARL);
+		ItemStack stack = new ItemStack(ItemInit.ITEM_TIER_END.get());
 		world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 		player.getCooldowns().addCooldown(this, 30);
 		if(!world.isClientSide) {

@@ -3,6 +3,8 @@ package com.github.atheera.swordsoftheend.objects.items;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemEnchanted extends Item {
 
 	public ItemEnchanted(Properties p_41383_) {

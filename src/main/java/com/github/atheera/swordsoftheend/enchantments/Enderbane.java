@@ -13,6 +13,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
+import net.minecraft.world.item.enchantment.Enchantment.Rarity;
+
 public class Enderbane extends ModEnchant {
     public Enderbane(Rarity rarity, EnchantmentCategory category, EquipmentSlot[] slots) {
         super(rarity, category, slots);

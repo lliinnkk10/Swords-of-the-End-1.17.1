@@ -18,6 +18,8 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemSwordThunder extends ItemSword {
 
 	public String tagActive = "active";

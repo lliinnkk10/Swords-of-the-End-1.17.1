@@ -21,6 +21,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import net.minecraft.world.item.Item.Properties;
+
 public class ItemPotion extends Item {
     public ItemPotion(Properties p_41383_) {
         super(p_41383_);

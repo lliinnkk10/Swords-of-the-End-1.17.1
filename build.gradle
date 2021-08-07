@@ -12,6 +12,8 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
+
 
 version = '0.0.7b'
 group = 'com.github.atheera.swordsoftheend' // http://maven.apache.org/guides/mini/guide-naming-conventions.html

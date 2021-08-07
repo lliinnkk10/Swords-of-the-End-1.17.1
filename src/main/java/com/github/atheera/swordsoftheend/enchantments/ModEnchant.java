@@ -11,6 +11,8 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 import java.util.Set;
 
+import net.minecraft.world.item.enchantment.Enchantment.Rarity;
+
 public class ModEnchant extends Enchantment {
     protected ModEnchant(Rarity rarity, EnchantmentCategory category, EquipmentSlot[] slots) {
         super(rarity, category, slots);
