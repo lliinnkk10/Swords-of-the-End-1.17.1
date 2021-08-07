@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "swordsoftheend:item_tier_exp"
+  },
+  "result": "swordsoftheend:item_tier2_exp",
+  "experience": 50.0,
+  "cookingtime": 1200
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "O@O",
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier2_thunder"
+    },
+    "X": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "O": {
+      "item": "swordsoftheend:block_smelt_gold_e"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_thunder"
+  }
+}

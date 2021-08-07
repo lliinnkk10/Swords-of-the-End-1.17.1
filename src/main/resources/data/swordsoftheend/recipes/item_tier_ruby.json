@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "blb",
+    "lml",
+    "blb"
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:lava_bucket"
+    },
+    "m": {
+      "item": "minecraft:magma_block"
+    },
+    "b": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_ruby"
+  }
+}

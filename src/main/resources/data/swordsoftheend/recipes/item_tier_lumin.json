@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bps",
+    "lml",
+    "spb"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:end_crystal"
+    },
+    "s": {
+      "item": "minecraft:sea_lantern"
+    },
+    "m": {
+      "item": "minecraft:dragon_breath"
+    },
+    "l": {
+      "item": "minecraft:blaze_rod"
+    },
+    "b": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_lumin"
+  }
+}

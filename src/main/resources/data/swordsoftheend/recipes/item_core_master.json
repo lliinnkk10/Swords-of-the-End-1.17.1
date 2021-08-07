@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " p ",
+    "w@c"
+  ],
+  "key": {
+    "p": {
+      "item": "swordsoftheend:item_tier_tf_power"
+    },
+    "w": {
+      "item": "swordsoftheend:item_tier_tf_wisdom"
+    },
+    "c": {
+      "item": "swordsoftheend:item_tier_tf_courage"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_master"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bbb",
+    "ibi",
+    "bbb"
+  ],
+  "key": {
+    "i": {
+      "item": "swordsoftheend:item_tier1_amethyst"
+    },
+    "b": {
+      "item": "swordsoftheend:item_dust_magic"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_amethyst"
+  }
+}

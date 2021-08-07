@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#x#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_dust_magic"
+    },
+    "x": {
+      "item": "swordsoftheend:item_gem_ruby"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_gem_ruby_e"
+  }
+}

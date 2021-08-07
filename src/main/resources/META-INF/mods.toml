@@ -1,0 +1,45 @@
+modLoader="javafml"
+
+loaderVersion="[37,)"
+
+license="All rights reserved"
+
+[[mods]]
+
+modId="swordsoftheend"
+
+version="0.0.7b"
+
+displayName="Swords of the End"
+
+logoFile="soteLogo.png"
+
+credits="Atheera"
+
+authors="Atheera"
+
+description='''
+This mod aims to introduce new end game, very powerful swords, all with unique and interesting abilities. 
+But getting them will not be easy...
+Items required for the swords are scattered all across the worlds!
+'''
+
+[[dependencies.examplemod]] #optional
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[37,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+# Here's another dependency
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+# This version range declares a minimum of the current minecraft version up to but not including the next major version
+    versionRange="[1.17.1,1.18)"
+    ordering="NONE"
+    side="BOTH"

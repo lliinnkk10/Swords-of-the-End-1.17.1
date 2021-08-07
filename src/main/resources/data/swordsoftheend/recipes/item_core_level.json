@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "#@#",
+    "#O#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier2_exp"
+    },
+    "O": {
+      "item": "minecraft:enchanting_table"
+    },
+    "X": {
+      "item": "minecraft:nether_star"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_level"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "n#n",
+    "#x#",
+    "n#n"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_dust_magic"
+    },
+    "n": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "x": {
+      "item": "minecraft:amethyst_block"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_gem_amethyst"
+  }
+}

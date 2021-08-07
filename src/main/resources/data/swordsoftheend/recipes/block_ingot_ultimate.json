@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#XO",
+    "@@@",
+    "OX#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:block_smelt_gold_e"
+    },
+    "X": {
+      "item": "swordsoftheend:block_smelt_lumin_e"
+    },
+    "O": {
+      "item": "swordsoftheend:block_smelt_shadite_e"
+    },
+    "@": {
+      "item": "swordsoftheend:block_magic"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:block_ingot_ultimate"
+  }
+}

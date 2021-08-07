@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "swordsoftheend:item_ingot_lumin_r"
+  },
+  "result": "swordsoftheend:item_ingot_lumin",
+  "experience": 10.0,
+  "cookingtime": 100
+}

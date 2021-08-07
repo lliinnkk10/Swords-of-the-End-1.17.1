@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "#O#",
+    "O@O",
+    "#O#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier2_end"
+    },
+    "O": {
+      "item": "swordsoftheend:block_end_e"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_end"
+  }
+}

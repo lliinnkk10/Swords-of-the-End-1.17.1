@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "swordsoftheend:item_ingot_shadite_r"
+  },
+  "result": "swordsoftheend:item_ingot_shadite",
+  "experience": 10.0,
+  "cookingtime": 100
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_ingot_lumin"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:block_smelt_lumin"
+  }
+}

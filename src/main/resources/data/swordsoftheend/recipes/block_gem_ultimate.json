@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#XO",
+    "@@@",
+    "+-%"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:block_gem_emerald_e"
+    },
+    "X": {
+      "item": "swordsoftheend:block_gem_diamond_e"
+    },
+    "O": {
+      "item": "swordsoftheend:block_crystal_amethyst_e"
+    },
+    "@": {
+      "item": "swordsoftheend:block_magic"
+    },
+    "+": {
+      "item": "swordsoftheend:block_crystal_sapphire_e"
+    },
+    "-": {
+      "item": "swordsoftheend:block_crystal_ruby_e"
+    },
+    "%": {
+      "item": "swordsoftheend:block_end_e"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:block_gem_ultimate"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cxc",
+    "xnx",
+    "cxc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:experience_bottle"
+    },
+    "n": {
+      "item": "minecraft:bucket"
+    },
+    "x": {
+      "item": "swordsoftheend:block_magic"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_exp"
+  }
+}

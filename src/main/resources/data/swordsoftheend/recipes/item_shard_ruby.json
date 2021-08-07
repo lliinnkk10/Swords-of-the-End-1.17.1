@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "swordsoftheend:block_crystal_ruby"
+    }
+  ],
+  "result": {
+    "item": "swordsoftheend:item_shard_ruby",
+    "count": 4
+  }
+}

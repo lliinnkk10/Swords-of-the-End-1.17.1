@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#XO",
+    "@+@",
+    "OX#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_potion_water"
+    },
+    "X": {
+      "item": "minecraft:cobweb"
+    },
+    "O": {
+      "item": "swordsoftheend:item_potion_slow"
+    },
+    "@": {
+      "item": "minecraft:blue_ice"
+    },
+    "+": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_sapphire"
+  }
+}

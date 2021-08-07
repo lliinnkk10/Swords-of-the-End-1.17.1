@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "swordsoftheend:blocks/block_bud_small_sapphire"
+  }
+}

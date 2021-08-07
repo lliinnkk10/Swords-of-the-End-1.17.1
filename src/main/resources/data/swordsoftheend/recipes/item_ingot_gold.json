@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "swordsoftheend:block_smelt_gold"
+    }
+  ],
+  "result": {
+    "item": "swordsoftheend:item_ingot_gold",
+    "count": 9
+  }
+}

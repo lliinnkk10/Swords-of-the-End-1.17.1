@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "b@b",
+    "#O#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier_sapphire"
+    },
+    "O": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "b": {
+      "item": "swordsoftheend:block_crystal_sapphire_e"
+    },
+    "X": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_sapphire"
+  }
+}

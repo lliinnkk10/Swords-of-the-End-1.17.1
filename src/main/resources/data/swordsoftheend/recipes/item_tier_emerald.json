@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#XO",
+    "@+-",
+    "O%#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "X": {
+      "item": "swordsoftheend:item_potion_strength"
+    },
+    "O": {
+      "item": "minecraft:wither_rose"
+    },
+    "@": {
+      "item": "swordsoftheend:item_potion_damage"
+    },
+    "+": {
+      "item": "minecraft:pufferfish_bucket"
+    },
+    "-": {
+      "item": "swordsoftheend:item_potion_poison"
+    },
+    "%": {
+      "item": "minecraft:dragon_breath"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_emerald"
+  }
+}

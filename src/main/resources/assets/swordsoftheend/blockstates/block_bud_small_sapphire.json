@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire"
+    },
+    "facing=west": {
+      "model": "swordsoftheend:block/block_bud_small_sapphire",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

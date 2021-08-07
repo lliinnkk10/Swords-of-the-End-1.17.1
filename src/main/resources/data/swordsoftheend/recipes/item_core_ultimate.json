@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "X@X",
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:block_gem_ultimate"
+    },
+    "X": {
+      "item": "swordsoftheend:block_ingot_ultimate"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_ultimate"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rgr",
+    "gfg",
+    "pgp"
+  ],
+  "key": {
+    "r": {
+      "item": "swordsoftheend:item_potion_swiftness"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "p": {
+      "item": "swordsoftheend:item_potion_falling"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_diamond"
+  }
+}

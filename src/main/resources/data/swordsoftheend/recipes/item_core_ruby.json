@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "O@O",
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier_ruby"
+    },
+    "X": {
+      "item": "minecraft:ghast_tear"
+    },
+    "O": {
+      "item": "swordsoftheend:block_crystal_ruby_e"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_ruby"
+  }
+}

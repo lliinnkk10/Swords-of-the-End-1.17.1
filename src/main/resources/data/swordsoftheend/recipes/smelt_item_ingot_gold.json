@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "swordsoftheend:item_ingot_gold_r"
+  },
+  "result": "swordsoftheend:item_ingot_gold",
+  "experience": 10.0,
+  "cookingtime": 100
+}

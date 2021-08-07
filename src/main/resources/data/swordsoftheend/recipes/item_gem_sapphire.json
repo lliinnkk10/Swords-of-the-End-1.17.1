@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "n#n",
+    "#x#",
+    "n#n"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_dust_magic"
+    },
+    "n": {
+      "item": "swordsoftheend:item_shard_sapphire"
+    },
+    "x": {
+      "item": "swordsoftheend:block_crystal_sapphire"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_gem_sapphire"
+  }
+}

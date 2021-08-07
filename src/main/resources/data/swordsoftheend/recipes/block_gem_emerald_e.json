@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_gem_emerald_e"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:block_gem_emerald_e"
+  }
+}

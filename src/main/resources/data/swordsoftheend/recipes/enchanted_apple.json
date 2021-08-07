@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "n#n",
+    "#x#",
+    "n#n"
+  ],
+  "key": {
+    "n": {
+      "item": "swordsoftheend:block_magic"
+    },
+    "x": {
+      "item": "minecraft:apple"
+    },
+    "#": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_golden_apple"
+  }
+}

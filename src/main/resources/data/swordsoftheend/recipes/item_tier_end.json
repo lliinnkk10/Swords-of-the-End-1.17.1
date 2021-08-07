@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#x#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_dust_magic"
+    },
+    "x": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_end"
+  }
+}

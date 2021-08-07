@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "swordsoftheend:item_core_master"
+    },
+    {
+      "item": "swordsoftheend:item_sword_base"
+    }
+  ],
+  "result": {
+    "item": "swordsoftheend:item_sword_master"
+  }
+}

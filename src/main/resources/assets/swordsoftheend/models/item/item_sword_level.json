@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "swordsoftheend:items/item_sword_level_0"
+  },
+  "overrides": [
+    { "predicate":  { "swordsoftheend:level": 0.000 }, "model": "swordsoftheend:item/item_sword_level_0" },
+    { "predicate":  { "swordsoftheend:level": 0.250 }, "model": "swordsoftheend:item/item_sword_level_1" },
+    { "predicate":  { "swordsoftheend:level": 0.500 }, "model": "swordsoftheend:item/item_sword_level_2" },
+    { "predicate":  { "swordsoftheend:level": 0.750 }, "model": "swordsoftheend:item/item_sword_level_3" },
+    { "predicate":  { "swordsoftheend:level": 0.800 }, "model": "swordsoftheend:item/item_sword_level_4" }
+  ]
+}
