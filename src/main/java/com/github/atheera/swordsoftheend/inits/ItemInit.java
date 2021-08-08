@@ -113,7 +113,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> ITEM_TIER_EMERALD = ITEMS.register("item_tier_emerald",
 		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE).stacksTo(1)));
 	public static final RegistryObject<Item> ITEM_TIER_END = ITEMS.register("item_tier_end",
-		() -> new ItemEnderpearlEnchanted(new Item.Properties().tab(iTab).rarity(BLUE)));
+		() -> new ItemEnderpearlEnchanted(new Item.Properties().tab(iTab).rarity(BLUE).stacksTo(16)));
 	public static final RegistryObject<Item> ITEM_TIER_EXP = ITEMS.register("item_tier_exp",
 		() -> new ItemEnchanted(new Item.Properties().tab(iTab).rarity(BLUE).stacksTo(1)));
 	public static final RegistryObject<Item> ITEM_TIER_GOLDROD = ITEMS.register("item_tier_goldrod",
@@ -123,7 +123,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> ITEM_TIER_LUMIN = ITEMS.register("item_tier_lumin",
 		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_RUBY = ITEMS.register("item_tier_ruby",
-		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
+		() -> new ItemMagmaball(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_SAPPHIRE = ITEMS.register("item_tier_sapphire",
 		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_SHADITE = ITEMS.register("item_tier_shadite",

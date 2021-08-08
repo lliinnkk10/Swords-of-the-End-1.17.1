@@ -50,7 +50,7 @@ public class ItemSwordRuby extends ItemSword {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 		//player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec*5));
-		player.getCooldowns().addCooldown(this, sec*30);
+		player.getCooldowns().addCooldown(this, sec*3);
 		world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 		if(!world.isClientSide) {
 			MagmaballEntity magmaball = new MagmaballEntity(player, 0.0d, 0.8d, 0.0d, world);

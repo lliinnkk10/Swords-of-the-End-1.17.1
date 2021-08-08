@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.item.Item;
@@ -23,9 +24,19 @@ import net.minecraft.world.phys.HitResult;
 
 import javax.annotation.Nullable;
 
-public class ModThrownMagmaball  {
+public class ModThrownMagmaball extends ThrowableItemProjectile {
 
     ModThrownMagmaball thrownMagmaball;
+    //EntityType<MagmaballEntity> mbe = EntityType.byString("magmaball_entity");
+
+    public ModThrownMagmaball(EntityType<? extends ModThrownMagmaball> p_37442_, Level p_37443_) {
+        super(p_37442_, p_37443_);
+    }
 
 
+
+    @Override
+    protected Item getDefaultItem() {
+        return null;
+    }
 }

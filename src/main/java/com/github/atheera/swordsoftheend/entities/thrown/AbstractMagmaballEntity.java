@@ -30,17 +30,17 @@ import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 @OnlyIn(Dist.CLIENT)
 public class AbstractMagmaballEntity extends AbstractHurtingProjectile implements ItemSupplier {
-    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(MagmaballEntity.class, EntityDataSerializers.ITEM_STACK);
+    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(AbstractMagmaballEntity.class, EntityDataSerializers.ITEM_STACK);
 
-    public AbstractMagmaballEntity(EntityType<? extends AbstractMagmaballEntity> entityType, Level world) {
+    public AbstractMagmaballEntity(EntityType<? extends MagmaballEntity> entityType, Level world) {
         super(entityType, world);
     }
 
-    public AbstractMagmaballEntity(EntityType<? extends AbstractMagmaballEntity> entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
+    public AbstractMagmaballEntity(EntityType<? extends MagmaballEntity> entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
         super(entity, x, y, z, accelX, accelY, accelZ, world);
     }
 
-    public AbstractMagmaballEntity(EntityType<? extends AbstractMagmaballEntity> entityType, LivingEntity entity, double x, double y, double z, Level world) {
+    public AbstractMagmaballEntity(EntityType<? extends MagmaballEntity> entityType, LivingEntity entity, double x, double y, double z, Level world) {
         super(entityType, entity, x, y, z, world);
     }
 

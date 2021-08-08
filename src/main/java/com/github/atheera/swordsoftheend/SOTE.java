@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend;
 
+import com.github.atheera.swordsoftheend.entities.render.MagmaballEntityRender;
 import com.github.atheera.swordsoftheend.inits.*;
 import com.github.atheera.swordsoftheend.utils.ClientEventBus;
 import com.github.atheera.swordsoftheend.utils.config.Config;
@@ -30,6 +31,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
+import net.minecraftforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -83,6 +85,7 @@ public class SOTE {
     
     private void doClientStuff(final FMLClientSetupEvent event) {
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
@@ -106,11 +109,9 @@ public class SOTE {
         }
     }
 
-    private static void render() {
-        ItemRenderer renderItem = Minecraft.getInstance().getItemRenderer();
-       // ItemEntityRenderer itemEntityRenderer = Minecraft.getInstance().getEntityModels();
+    private void registerRender() {
+        ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
 
-        //renderItem.render();
 
     }
 

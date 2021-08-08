@@ -23,17 +23,16 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-@OnlyIn(Dist.CLIENT)
 public class MagmaballEntity extends AbstractMagmaballEntity {
 
     private static final int explosionPower = 2;
 
     public MagmaballEntity(EntityType<? extends MagmaballEntity> entityType, Level world) {
-        super(EntityInit.MAGMABALL.get(), world);
+        super(entityType, world);
     }
 
     public MagmaballEntity(EntityType<? extends MagmaballEntity> entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
-        super(EntityInit.MAGMABALL.get(), x, y, z, accelX, accelY, accelZ, world);
+        super(entity, x, y, z, accelX, accelY, accelZ, world);
     }
 
     public MagmaballEntity(LivingEntity entity, double x, double y, double z, Level world) {
@@ -82,7 +81,7 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
         if(!level.isClientSide) {
             boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, getOwner());
             this.level.explode((Entity)null, getX(), getY(), getZ(), explosionPower, flag, Explosion.BlockInteraction.NONE);
-            this.remove(true);
+            this.discard();
         }
     }
 
