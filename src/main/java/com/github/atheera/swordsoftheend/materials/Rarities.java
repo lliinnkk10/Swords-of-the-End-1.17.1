@@ -9,5 +9,7 @@ public class Rarities {
 	public static final Rarity BLUE = Rarity.create("BLUE", ChatFormatting.BLUE);
 	public static final Rarity PURPLE = Rarity.create("PURPLE", ChatFormatting.DARK_PURPLE);
 	public static final Rarity GOLD = Rarity.create("GOLD", ChatFormatting.GOLD);
+	public static final Rarity RED = Rarity.create("RED", ChatFormatting.RED);
+	public static final Rarity BLACK = Rarity.create("BLACK", ChatFormatting.BLACK);
 	
 }

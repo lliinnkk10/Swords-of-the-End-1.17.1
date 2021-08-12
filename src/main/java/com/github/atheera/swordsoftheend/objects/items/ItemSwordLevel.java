@@ -30,8 +30,6 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-import net.minecraft.world.item.Item.Properties;
-
 public class ItemSwordLevel extends ItemSword {
 
 	public String tagLevel = "level";
@@ -132,17 +130,13 @@ public class ItemSwordLevel extends ItemSword {
 			nbt.putBoolean(this.tagAdded, true);
 		}
 
-		if (checkMS(stack) == 10) {
-			if (entity instanceof Player) {
-				if (held) {
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sec, 2));
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, sec, 1));
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, sec, 2));
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, sec, 1));
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec));
-					((Player) entity).addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, sec));
-				}
-			}
+		if (checkMS(stack) == 10 && entity instanceof Player player && held) {
+			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sec, 2));
+			player.addEffect(new MobEffectInstance(MobEffects.JUMP, sec, 1));
+			player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, sec, 2));
+			player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, sec, 1));
+			player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec));
+			player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, sec));
 		}
 		super.inventoryTick(stack, world, entity, time, held);
 	}
@@ -150,7 +144,6 @@ public class ItemSwordLevel extends ItemSword {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 		ItemStack stack = player.getMainHandItem();
-
 
 		if(checkMS(stack) == 10) {
 			player.getCooldowns().addCooldown(this, sec*30);
@@ -209,19 +202,9 @@ public class ItemSwordLevel extends ItemSword {
 			player.getCooldowns().addCooldown(this, sec*45);
 			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sec*30));
 			player.addEffect(new MobEffectInstance(MobEffects.JUMP, sec*30));
-		} else if(checkMS(stack) == 1) {
-			player.getCooldowns().addCooldown(this, 0);
-		} else if(checkMS(stack) == 0) {
+		} else {
 			player.getCooldowns().addCooldown(this, 0);
 		}
-
-		if(player.isShiftKeyDown()) {
-			stack.getOrCreateTag().putInt(tagLevel, stack.getOrCreateTag().getInt(tagLevel) + 10);
-			stack.getOrCreateTag().putBoolean(tagWither, true);
-			stack.getOrCreateTag().putBoolean(tagDragon, true);
-			player.getCooldowns().removeCooldown(this);
-		}
-
 		return super.use(world, player, hand);
 	}
 

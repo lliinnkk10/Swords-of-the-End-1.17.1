@@ -1,6 +1,8 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.inits.CreativeTabInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.materials.Rarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
@@ -24,8 +26,8 @@ import java.util.List;
 import net.minecraft.world.item.Item.Properties;
 
 public class ItemPotion extends Item {
-    public ItemPotion(Properties p_41383_) {
-        super(p_41383_);
+    public ItemPotion() {
+        super(new Item.Properties().tab(CreativeTabInit.SOTE_I_CMT).rarity(Rarities.PURPLE).stacksTo(1));
     }
 
     @Override

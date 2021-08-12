@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "swordsoftheend:items/item_sword_saber_0"
+  },
+  "overrides": [
+    { "predicate":  { "swordsoftheend:saber": 0.000 }, "model": "swordsoftheend:item/item_sword_saber_0" },
+    { "predicate":  { "swordsoftheend:saber": 0.100 }, "model": "swordsoftheend:item/item_sword_saber_1" },
+    { "predicate":  { "swordsoftheend:saber": 0.200 }, "model": "swordsoftheend:item/item_sword_saber_2" },
+    { "predicate":  { "swordsoftheend:saber": 0.300 }, "model": "swordsoftheend:item/item_sword_saber_3" },
+    { "predicate":  { "swordsoftheend:saber": 0.400 }, "model": "swordsoftheend:item/item_sword_saber_4" },
+    { "predicate":  { "swordsoftheend:saber": 0.500 }, "model": "swordsoftheend:item/item_sword_saber_5" },
+    { "predicate":  { "swordsoftheend:saber": 0.600 }, "model": "swordsoftheend:item/item_sword_saber_6" },
+    { "predicate":  { "swordsoftheend:saber": 0.700 }, "model": "swordsoftheend:item/item_sword_saber_7" },
+    { "predicate":  { "swordsoftheend:saber": 0.800 }, "model": "swordsoftheend:item/item_sword_saber_8" },
+    { "predicate":  { "swordsoftheend:saber": 0.900 }, "model": "swordsoftheend:item/item_sword_saber_9" }
+  ]
+}

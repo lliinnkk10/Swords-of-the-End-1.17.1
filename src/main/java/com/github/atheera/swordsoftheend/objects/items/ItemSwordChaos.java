@@ -7,14 +7,12 @@ import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.materials.ModDamageSource;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -33,10 +31,7 @@ import java.util.Random;
 
 public class ItemSwordChaos extends ItemSword {
 
-    private Random rand = new Random();
-
-    private String TAG_TIMER = "timer";
-    private int TIMER;
+    private final Random rand = new Random();
 
     public ItemSwordChaos(Tier tier, int damage, float speed, Properties properties) {
         super(tier, damage, speed, properties);
@@ -57,10 +52,12 @@ public class ItemSwordChaos extends ItemSword {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if(!world.isClientSide)
-            try{
+            try {
                 getRCEffect(player, rand.nextInt(7));
-            }catch (Exception e) {
+                return InteractionResultHolder.success(player.getMainHandItem());
+            } catch (Exception e) {
                 e.printStackTrace();
+                return InteractionResultHolder.fail(player.getMainHandItem());
             }
         return InteractionResultHolder.success(player.getMainHandItem());
     }
@@ -135,7 +132,6 @@ public class ItemSwordChaos extends ItemSword {
     private void getHitEffect(LivingEntity entity, int fx) {
 
         Level world = entity.level;
-        ItemStack stack = entity.getMainHandItem();
 
         if(!world.isClientSide) {
 

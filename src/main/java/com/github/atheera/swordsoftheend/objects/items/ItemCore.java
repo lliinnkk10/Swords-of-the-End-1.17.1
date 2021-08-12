@@ -1,6 +1,8 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.inits.CreativeTabInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.materials.Rarities;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -13,11 +15,9 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import net.minecraft.world.item.Item.Properties;
-
 public class ItemCore extends Item {
-    public ItemCore(Properties p_41383_) {
-        super(p_41383_);
+    public ItemCore() {
+        super(new Item.Properties().tab(CreativeTabInit.SOTE_I_CMT).rarity(Rarities.PURPLE));
     }
 
     @Override
@@ -33,6 +33,7 @@ public class ItemCore extends Item {
             if(item == ItemInit.ITEM_CORE_END.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Ender Ender"));
             if(item == ItemInit.ITEM_CORE_LEVEL.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Soul's Edge"));
             if(item == ItemInit.ITEM_CORE_LUMIN.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Sting"));
+            if(item == ItemInit.ITEM_CORE_SABER.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Lightsaber Hilt"));
             if(item == ItemInit.ITEM_CORE_RUBY.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Hellsbane"));
             if(item == ItemInit.ITEM_CORE_SAPPHIRE.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Everfrost"));
             if(item == ItemInit.ITEM_CORE_THUNDER.get()) tooltip.add(new TextComponent(aqua + "Combine this item with the Base Sword to get Berserker's Fury"));

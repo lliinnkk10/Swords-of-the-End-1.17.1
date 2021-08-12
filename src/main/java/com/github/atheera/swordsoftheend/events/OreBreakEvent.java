@@ -1,8 +1,5 @@
 package com.github.atheera.swordsoftheend.events;
 
-import com.github.atheera.swordsoftheend.inits.BlockInit;
-import com.github.atheera.swordsoftheend.inits.ItemInit;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -13,16 +10,13 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import com.github.atheera.swordsoftheend.*;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
-import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
 
 import static com.github.atheera.swordsoftheend.SOTE.MOD_ID;
@@ -56,9 +50,9 @@ public class OreBreakEvent {
             IIGR = stack(ITEM_INGOT_GOLD_R),
             IILR = stack(ITEM_INGOT_LUMIN_R),
             IISR = stack(ITEM_INGOT_SHADITE_R),
-            IDME = stack(ITEM_DUST_MAGIC_E),
             IGRS = stack(ITEM_GEM_RUBY_S),
             IGSS = stack(ITEM_GEM_SAPPHIRE_S);
+        ItemStack IDME = new ItemStack(ITEM_DUST_MAGIC_E.get());
 
         boolean
             BOG = check(e, BLOCK_ORE_GOLD),

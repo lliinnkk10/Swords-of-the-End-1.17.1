@@ -1,7 +1,5 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
-import java.util.List;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -11,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-import net.minecraft.world.item.Item.Properties;
+import java.util.List;
 
 public class ItemSword extends SwordItem {
 	
