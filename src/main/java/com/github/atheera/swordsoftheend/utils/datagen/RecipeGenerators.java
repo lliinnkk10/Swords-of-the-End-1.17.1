@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend.utils.datagen;
 
+import com.github.atheera.swordsoftheend.inits.BlockInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
@@ -23,17 +24,6 @@ public class RecipeGenerators extends RecipeProvider {
         super(p_125973_);
     }
 
-    private Item getPotion(String pot) {
-        Potion pots = switch (pot) {
-            case "STRONG_STRENGTH" -> Potions.STRONG_STRENGTH;
-            case "STRONG_LEAPING" -> Potions.STRONG_LEAPING;
-            case "STRONG_SWIFTNESS" -> Potions.STRONG_SWIFTNESS;
-            default -> Potions.AWKWARD;
-        };
-        Item potion = Items.POTION;
-        PotionUtils.setPotion(potion.getDefaultInstance(), pots);
-        return potion;
-    }
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -52,17 +42,21 @@ public class RecipeGenerators extends RecipeProvider {
             .save(consumer);
 
 */
+
+        ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER.get())
+                .pattern("MSM")
+                .pattern("GFL")
+                .pattern("MEM")
+                .define('M', BlockInit.ITEM_BLOCK_MAGIC.get())
+                .define('S', BlockInit.ITEM_BLOCK_SMELT_SHADITE_E.get())
+                .define('G', BlockInit.ITEM_BLOCK_SMELT_GOLD_E.get())
+                .define('F', Items.FURNACE)
+                .define('L', BlockInit.ITEM_BLOCK_SMELT_LUMIN_E.get())
+                .define('E', Items.ENCHANTING_TABLE)
+                .group("swordsoftheend")
+                .unlockedBy("magic", InventoryChangeTrigger.TriggerInstance.hasItems(BlockInit.ITEM_BLOCK_MAGIC.get()))
+                .save(consumer);
+
     }
 }
 
-/*
-        ShapedRecipeBuilder.shaped(ItemInit.ITEM_TIER2_THUNDER.get())
-            .pattern("   ")
-            .pattern("   ")
-            .pattern("   ")
-            .define('', )
-            .define('', )
-            .group("")
-            .unlockedBy("", InventoryChangeTrigger.TriggerInstance.hasItems())
-            .save(consumer);
- */

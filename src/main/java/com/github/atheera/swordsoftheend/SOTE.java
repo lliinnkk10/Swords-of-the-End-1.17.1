@@ -1,19 +1,12 @@
 package com.github.atheera.swordsoftheend;
 
-import com.github.atheera.swordsoftheend.entities.render.MagmaballEntityRender;
 import com.github.atheera.swordsoftheend.inits.*;
 import com.github.atheera.swordsoftheend.utils.ClientEventBus;
 import com.github.atheera.swordsoftheend.utils.config.Config;
 import com.github.atheera.swordsoftheend.utils.recipe.potions.*;
 import com.github.atheera.swordsoftheend.world.OreGeneration;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemEntityRenderer;
-import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.RenderProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
@@ -31,23 +24,23 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
-import net.minecraftforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-@Mod("swordsoftheend")
-@Mod.EventBusSubscriber(modid = SOTE.MOD_ID, bus = Bus.MOD)
+import static com.github.atheera.swordsoftheend.SOTE.MOD_ID;
+
+@Mod(MOD_ID)
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Bus.MOD)
 public class SOTE {
 
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "swordsoftheend";
     public static SOTE instance;
+    public static final ResourceLocation DISTANCE_PROPERTY = new ResourceLocation(MOD_ID, "distance");
 
     public SOTE() {
-
-
 
         instance = this;
 
@@ -85,7 +78,6 @@ public class SOTE {
     
     private void doClientStuff(final FMLClientSetupEvent event) {
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
-
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
@@ -107,13 +99,9 @@ public class SOTE {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> e) {
 
         }
-    }
-
-    private void registerRender() {
-        ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
-
 
     }
+
 
     private void registerPotions() {
         BrewingRecipeRegistry.addRecipe(new StrengthPotion());

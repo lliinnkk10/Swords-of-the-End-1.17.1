@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "swordsoftheend:block_infuser"
+    ]
+  },
+  "criteria": {
+    "magic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "swordsoftheend:block_magic"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "swordsoftheend:block_infuser"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "magic",
+      "has_the_recipe"
+    ]
+  ]
+}

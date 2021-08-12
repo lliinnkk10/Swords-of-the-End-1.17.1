@@ -168,6 +168,8 @@ public class ItemInit {
 		() -> new ItemSwordBase(ModToolTier.BASE, 8, -2.4f, new Item.Properties().tab(sTab).rarity(Rarities.PURPLE)));
 	public static final RegistryObject<ItemSwordAmethyst> ITEM_SWORD_AMETHYST = ITEMS.register("item_sword_amethyst",
 		() -> new ItemSwordAmethyst(ModToolTier.TIERONE, 13, -2.0f, new Item.Properties().tab(sTab).rarity(GOLD)));
+	public static final RegistryObject<ItemSwordChaos> ITEM_SWORD_CHAOS = ITEMS.register("item_sword_chaos",
+		() -> new ItemSwordChaos(ModToolTier.TIERONE, 0, -2.4f, new Item.Properties().tab(sTab).rarity(GOLD)));
 	public static final RegistryObject<ItemSwordDiamond> ITEM_SWORD_DIAMOND = ITEMS.register("item_sword_diamond",
 		() -> new ItemSwordDiamond(ModToolTier.TIERONE, 11, -1.4f, new Item.Properties().tab(sTab).rarity(GOLD)));
 	public static final RegistryObject<ItemSwordEmerald> ITEM_SWORD_EMERALD = ITEMS.register("item_sword_emerald",

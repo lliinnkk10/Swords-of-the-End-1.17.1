@@ -2,13 +2,13 @@ modLoader="javafml"
 
 loaderVersion="[37,)"
 
-license="All rights reserved"
+license="GPL-3.0 License"
 
 [[mods]]
 
 modId="swordsoftheend"
 
-version="0.0.7b"
+version="0.0.9b-1.17.1"
 
 displayName="Swords of the End"
 
@@ -24,7 +24,7 @@ But getting them will not be easy...
 Items required for the swords are scattered all across the worlds!
 '''
 
-[[dependencies.examplemod]] #optional
+[[dependencies.swordsoftheend]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -35,11 +35,4 @@ Items required for the swords are scattered all across the worlds!
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
-[[dependencies.examplemod]]
-    modId="minecraft"
-    mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.17.1,1.18)"
-    ordering="NONE"
-    side="BOTH"
+

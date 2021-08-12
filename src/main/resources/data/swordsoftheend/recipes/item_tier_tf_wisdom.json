@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "XOX"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier2_exp"
+    },
+    "X": {
+      "item": "minecraft:gold_block"
+    },
+    "O": {
+      "item": "swordsoftheend:block_magic"
+    }
+  },
+  "result": {
+    "item": "minecraft:jukebox"
+  }
+}

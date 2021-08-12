@@ -1,12 +1,10 @@
-package com.github.atheera.swordsoftheend.entities;
+package com.github.atheera.swordsoftheend.entities.thrown;
 
-import com.github.atheera.swordsoftheend.entities.thrown.AbstractMagmaballEntity;
-import com.github.atheera.swordsoftheend.inits.EntityInit;
+import com.github.atheera.swordsoftheend.entities.item.AbstractMagmaballEntity;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.materials.ModDamageSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,10 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 public class MagmaballEntity extends AbstractMagmaballEntity {
 
@@ -31,12 +26,16 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
         super(entityType, world);
     }
 
-    public MagmaballEntity(EntityType<? extends MagmaballEntity> entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
-        super(entity, x, y, z, accelX, accelY, accelZ, world);
+    public MagmaballEntity(LivingEntity entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
+        super(EntityType.FIREBALL, x, y, z, accelX, accelY, accelZ, world);
     }
 
     public MagmaballEntity(LivingEntity entity, double x, double y, double z, Level world) {
-        super(EntityInit.MAGMABALL.get(), entity, x, y, z, world);
+        super(EntityType.FIREBALL, entity, x, y, z, world);
+    }
+
+    public MagmaballEntity(Level world, LivingEntity shooter, double x, double y, double z) {
+        super(EntityType.FIREBALL, shooter, x, y, z, world);
     }
 
     @Override
@@ -45,15 +44,6 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
         return stack.isEmpty() ? new ItemStack(ItemInit.ITEM_TIER_RUBY.get()) : stack;
     }
 
-    @Override
-    public Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
-
-    @Override
-    public boolean shouldRender(double p_20296_, double p_20297_, double p_20298_) {
-        return super.shouldRender(p_20296_, p_20297_, p_20298_);
-    }
 
     @Override
     public void setItem(ItemStack stack) {
@@ -85,6 +75,7 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
         }
     }
 
+
     @Override
     public boolean shouldBlockExplode(Explosion p_19987_, BlockGetter p_19988_, BlockPos p_19989_, BlockState p_19990_, float p_19991_) {
         return false;
@@ -92,7 +83,7 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
 
     @Override
     protected boolean shouldBurn() {
-        return true;
+        return false;
     }
 
     @Override

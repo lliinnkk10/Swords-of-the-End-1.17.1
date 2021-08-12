@@ -14,7 +14,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 
-version = '0.0.7b'
+version = '0.0.9b'
 group = 'com.github.atheera.swordsoftheend' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'swordsoftheend'
 
@@ -153,8 +153,6 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation fg.deobf("curse.maven:cloth-348521:3409422")
-
     runtimeOnly fg.deobf("curse.maven:cloth-348521:3409422")
     runtimeOnly fg.deobf("curse.maven:arch-419699:3409465")
     runtimeOnly fg.deobf("curse.maven:rei-392060:3409489")
@@ -167,11 +165,11 @@ jar {
     manifest {
         attributes([
                 "Specification-Title"     : "swordsoftheend",
-                "Specification-Vendor"    : "swordsoftheend",
+                "Specification-Vendor"    : "Atheera",
                 "Specification-Version"   : "0.0.6b", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "swordsoftheend",
+                "Implementation-Vendor"   : "Atheera",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

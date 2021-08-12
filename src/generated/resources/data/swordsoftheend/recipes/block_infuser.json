@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "swordsoftheend",
+  "pattern": [
+    "MSM",
+    "GFL",
+    "MEM"
+  ],
+  "key": {
+    "M": {
+      "item": "swordsoftheend:block_magic"
+    },
+    "S": {
+      "item": "swordsoftheend:block_smelt_shadite_e"
+    },
+    "G": {
+      "item": "swordsoftheend:block_smelt_gold_e"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "L": {
+      "item": "swordsoftheend:block_smelt_lumin_e"
+    },
+    "E": {
+      "item": "minecraft:enchanting_table"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:block_infuser"
+  }
+}

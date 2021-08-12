@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#XY",
+    "XOX"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_potion_strength"
+    },
+    "Y": {
+      "item": "swordsoftheend:item_potion_damage"
+    },
+    "X": {
+      "item": "minecraft:gold_block"
+    },
+    "O": {
+      "item": "swordsoftheend:block_magic"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_tf_power"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "XOX"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "X": {
+      "item": "minecraft:gold_block"
+    },
+    "O": {
+      "item": "swordsoftheend:block_magic"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier_tf_courage"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "swordsoftheend:blocks/block_infuser_top",
+    "up": "swordsoftheend:blocks/block_infuser_top",
+    "north": "swordsoftheend:blocks/block_infuser_off",
+    "south": "swordsoftheend:blocks/block_infuser_side",
+    "east": "swordsoftheend:blocks/block_infuser_side",
+    "west": "swordsoftheend:blocks/block_infuser_side"
+  }
+}

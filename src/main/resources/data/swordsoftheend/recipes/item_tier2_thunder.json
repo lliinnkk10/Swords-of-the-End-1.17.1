@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "XO@",
+    " + "
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_potion_strength"
+    },
+    "X": {
+      "item": "swordsoftheend:item_potion_swiftness"
+    },
+    "O": {
+      "item": "swordsoftheend:item_tier_goldrod"
+    },
+    "@": {
+      "item": "swordsoftheend:item_potion_slow"
+    },
+    "+": {
+      "item": "swordsoftheend:item_potion_damage"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier2_thunder"
+  }
+}

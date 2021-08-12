@@ -70,10 +70,11 @@
 
 	"item.swordsoftheend.item_sword_base": "Basic Sword",
 	"item.swordsoftheend.item_sword_emerald": "Death",
+	"item.swordsoftheend.item_sword_chaos": "???",
 	"item.swordsoftheend.item_sword_end": "Ender Ender",
 	"item.swordsoftheend.item_sword_lumin": "Sting",
 	"item.swordsoftheend.item_sword_sapphire": "Everfrost",
-	"item.swordsoftheend.item_sword_ruby": "Hellsbane W.I.P.",
+	"item.swordsoftheend.item_sword_ruby": "Hellsbane",
 	"item.swordsoftheend.item_sword_level": "Soul's Edge",
 	"item.swordsoftheend.item_sword_amethyst": "Vampirical Blade",
 	"item.swordsoftheend.item_sword_diamond": "YEEEEEEETCANNON!!!",
@@ -121,12 +122,15 @@
 	"block.swordsoftheend.block_gem_emerald_e": "Enchanted Emerald Block",
 	"block.swordsoftheend.block_end_e": "Enchanted Ender Pearl Block",
 
+	"block.swordsoftheend.block_infuser": "Enchantment Infuser",
+
 	"block.swordsoftheend.block_bud_large_ruby": "Large Ruby Bud",
 	"block.swordsoftheend.block_bud_medium_ruby": "Medium Ruby Bud",
 	"block.swordsoftheend.block_bud_small_ruby": "Small Ruby Bud",
 	"block.swordsoftheend.block_bud_large_sapphire": "Large Sapphire Bud",
 	"block.swordsoftheend.block_bud_medium_sapphire": "Medium Sapphire Bud",
-	"block.swordsoftheend.block_bud_small_sapphire": "Small Sapphire Bud"
+	"block.swordsoftheend.block_bud_small_sapphire": "Small Sapphire Bud",
 
+	"death.attack.stupidity": "You were killed by stupidity!"
 	
 }

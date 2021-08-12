@@ -1,12 +1,12 @@
 package com.github.atheera.swordsoftheend.materials;
 
-import com.github.atheera.swordsoftheend.entities.MagmaballEntity;
-import com.github.atheera.swordsoftheend.entities.thrown.ModThrownMagmaball;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
+import com.github.atheera.swordsoftheend.entities.thrown.MagmaballEntity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.EntityDamageSource;
 import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.Entity;
+
+import javax.annotation.Nullable;
 
 public class ModDamageSource extends EntityDamageSource {
 
@@ -20,6 +20,10 @@ public class ModDamageSource extends EntityDamageSource {
             (new IndirectEntityDamageSource("onMagma", magmaball, magmaball).setProjectile())
                 :
             (new IndirectEntityDamageSource("magmaBall", magmaball, entity).setIsFire().setProjectile());
+    }
+
+    public static DamageSource stupidity(@Nullable Entity entity) {
+        return new EntityDamageSource("stupidity", entity);
     }
 
 }

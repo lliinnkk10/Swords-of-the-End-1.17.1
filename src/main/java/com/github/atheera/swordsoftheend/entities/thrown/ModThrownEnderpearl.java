@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend.entities.thrown;
 
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -36,7 +37,7 @@ public class ModThrownEnderpearl extends ThrowableItemProjectile {
     }
 
     protected Item getDefaultItem() {
-        return Items.ENDER_PEARL;
+        return ItemInit.ITEM_TIER_END.get();
     }
 
     protected void onHitEntity(EntityHitResult entity) {

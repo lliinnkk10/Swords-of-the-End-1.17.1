@@ -2,9 +2,7 @@ package com.github.atheera.swordsoftheend.objects.items;
 
 import java.util.List;
 
-import com.github.atheera.swordsoftheend.entities.MagmaballEntity;
-import com.github.atheera.swordsoftheend.entities.thrown.ModThrownMagmaball;
-import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.entities.thrown.MagmaballEntity;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -43,19 +41,18 @@ public class ItemSwordRuby extends ItemSword {
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if(target instanceof Mob)
 			target.setSecondsOnFire(10);
-			target.addEffect(new MobEffectInstance(MobEffects.WITHER, sec*10));
 		return super.hurtEnemy(stack, target, attacker);
 	}
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-		//player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec*5));
+		player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, sec*10));
+		player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, Integer.MAX_VALUE));
 		player.getCooldowns().addCooldown(this, sec*3);
 		world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 		if(!world.isClientSide) {
-			MagmaballEntity magmaball = new MagmaballEntity(player, 0.0d, 0.8d, 0.0d, world);
-			magmaball.setItem(ItemInit.ITEM_TIER_RUBY.get().getDefaultInstance());
-			magmaball.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 1.0f);
+			MagmaballEntity magmaball = new MagmaballEntity(player, player.getX(), player.getY()+1, player.getZ(), 0.0D, -0.8D, 0.0D, world);
+			magmaball.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.5F, 0.0F);
 			world.addFreshEntity(magmaball);
 		}
 		return super.use(world, player, hand);

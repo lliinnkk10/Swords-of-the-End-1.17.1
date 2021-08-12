@@ -127,8 +127,9 @@ public class BlockInit {
     public static final RegistryObject<Block> BLOCK_INGOT_ULTIMATE = BLOCKS.register("block_ingot_ultimate",
         () -> new Block(metalProperties));
 
-    public static final RegistryObject<Block> BLOCK_ENCHANT_INFUSER = BLOCKS.register("block",
-        () -> new BlockInfuser(BlockBehaviour.Properties.of(Material.STONE).strength(15.0f, 26.0f).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<BlockInfuser> BLOCK_ENCHANT_INFUSER = BLOCKS.register("block_infuser", BlockInfuser::new);
+    public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER = ITEMS.register("block_infuser",
+            () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties().tab(bTab)));
 
         // * * * * * * * * * * * * Temporary * * * * * * * * * * * * \\
     public static final RegistryObject<Block> BLOCK_ORE_RUBY = BLOCKS.register("block_ore_ruby",
