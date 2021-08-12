@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.SOTE;
 import com.github.atheera.swordsoftheend.entities.thrown.ModThrownEnderpearl;
 import com.github.atheera.swordsoftheend.entities.thrown.ThrownRandomEntity;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
@@ -16,10 +17,8 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -58,10 +57,11 @@ public class ItemSwordChaos extends ItemSword {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if(!world.isClientSide)
-            if(player.isShiftKeyDown())
-                getRCEffect(player, 6);
-            else
+            try{
                 getRCEffect(player, rand.nextInt(7));
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
         return InteractionResultHolder.success(player.getMainHandItem());
     }
 
@@ -84,8 +84,8 @@ public class ItemSwordChaos extends ItemSword {
             case 2 -> {
                 System.out.println(fx);
                 world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.8F + 0.8F));
-                player.hurt(DamageSource.ANVIL, player.getHealth()-1.0f);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, sec*2, 4));
+                player.hurt(ModDamageSource.stupidity(player), player.getHealth()-1.0f);
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 50, 4));
             }
             case 3 -> {
                 System.out.println(fx);
@@ -100,7 +100,7 @@ public class ItemSwordChaos extends ItemSword {
                 System.out.println(fx);
                 for(int i = 0; i < 10; i++) {
                     Arrow arrow = new Arrow(world, player);
-                    arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, i*0.25f, 1.0f);
+                    arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), (i*0.25f)+(-1.0f), (i*0.25f)+1.0f, 1.0f);
                     arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     world.addFreshEntity(arrow);
                 }
@@ -114,7 +114,7 @@ public class ItemSwordChaos extends ItemSword {
             }
             default -> {
                 System.out.println(fx + " ERROR");
-                player.sendMessage(new TextComponent("ERROR"), player.getUUID());
+                SOTE.LOGGER.error("Error right-clicking chaos sword!");
             }
         }
 
@@ -122,9 +122,14 @@ public class ItemSwordChaos extends ItemSword {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if(rand.nextBoolean()) getHitEffect(attacker, rand.nextInt(5));
-        else getHitEffect(target, rand.nextInt(5));
-        return true;
+        try {
+            if(rand.nextBoolean()) getHitEffect(attacker, rand.nextInt(5));
+            else getHitEffect(target, rand.nextInt(6));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private void getHitEffect(LivingEntity entity, int fx) {
@@ -148,19 +153,34 @@ public class ItemSwordChaos extends ItemSword {
                     }
                     case 2 -> {
                         System.out.println(fx + " kill mob");
-                        enemy.hurt(DamageSource.FLY_INTO_WALL, 50);
+                        enemy.setRemoved(Entity.RemovalReason.KILLED);
                     }
                     case 3 -> {
                         System.out.println(fx + " move mob");
-                        enemy.move(MoverType.SELF, new Vec3(enemy.getX(), enemy.getY() + 10, enemy.getZ()));
+                        Vec3 oPos = enemy.position();
+                        boolean flag = false;
+                        while (!flag){
+                            enemy.randomTeleport(
+                                    enemy.getX() + rand.nextInt(5),
+                                    enemy.getY() + rand.nextInt(5),
+                                    enemy.getZ() + rand.nextInt(5), true);
+                            if(oPos != enemy.position()) flag = true;
+                        }
                     }
                     case 4 -> {
                         System.out.println(fx + " heal mob");
                         enemy.heal(10.0f);
                     }
+                    case 5 -> {
+                        System.out.println(fx + " transform mob");
+                        enemy.setRemoved(Entity.RemovalReason.DISCARDED);
+                        Chicken chicken = new Chicken(EntityType.CHICKEN, world);
+                        chicken.setPos(enemy.position());
+                        world.addFreshEntity(chicken);
+                    }
                     default -> {
                         System.out.println("ERROR");
-                        enemy.remove(Entity.RemovalReason.KILLED);
+                        SOTE.LOGGER.error("Error applying effect to mob via chaos sword!");
                     }
                 }
 
@@ -179,15 +199,28 @@ public class ItemSwordChaos extends ItemSword {
                     }
                     case 2 -> {
                         System.out.println(fx + " teleport player");
-                        player.randomTeleport(
-                                player.getX() + rand.nextInt(5),
-                                player.getY() + rand.nextInt(5),
-                                player.getZ() + rand.nextInt(5), true);
+                        Vec3 oPos = player.position();
+                        boolean flag = false;
+                        while (!flag){
+                            player.randomTeleport(
+                                    player.getX() + rand.nextInt(5),
+                                    player.getY() + rand.nextInt(5),
+                                    player.getZ() + rand.nextInt(5), true);
+                            if(oPos != player.position()) flag = true;
+                        }
                         player.sendMessage(new TextComponent("???"), player.getUUID());
+                    }
+                    case 3 -> {
+                        System.out.println(fx + " heal player");
+                        player.heal(5.0f);
+                    }
+                    case 4 -> {
+                        System.out.println(fx + " sleep player");
+                        player.startSleeping(player.blockPosition());
                     }
                     default -> {
                         System.out.println(fx + " ERROR");
-                        player.sendMessage(new TextComponent("ERROR"), player.getUUID());
+                        SOTE.LOGGER.error("Error applying effect to player via chaos sword!");
                     }
                 }
 
