@@ -26,13 +26,5 @@ public class ItemToolChisel extends Item {
         return 50;
     }
 
-    @Override
-    public boolean canHarvestBlock(ItemStack stack, BlockState state) {
-
-
-
-        return super.canHarvestBlock(stack, state);
-    }
-
 
 }

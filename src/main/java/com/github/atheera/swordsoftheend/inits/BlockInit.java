@@ -3,12 +3,17 @@ package com.github.atheera.swordsoftheend.inits;
 import com.github.atheera.swordsoftheend.materials.Rarities;
 import com.github.atheera.swordsoftheend.objects.blocks.BlockInfuser;
 import com.github.atheera.swordsoftheend.objects.blocks.BlockItemEnchanted;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,11 +33,11 @@ public class BlockInit {
 
     // Block Properties
     private static final BlockBehaviour.Properties oreProperties = BlockBehaviour.Properties.of(Material.STONE).strength(3.0f, 3.0f)
-                         .sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops();
+                         .sound(SoundType.STONE).requiresCorrectToolForDrops();
     private static final BlockBehaviour.Properties deepOreProperties = BlockBehaviour.Properties.of(Material.STONE).strength(4.5f, 3.0f)
-                         .sound(SoundType.DEEPSLATE).harvestLevel(2).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops();
+                         .sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops();
     private static final BlockBehaviour.Properties metalProperties = BlockBehaviour.Properties.of(Material.METAL).strength(3.0f, 6.0f)
-                         .sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops();
+                         .sound(SoundType.METAL).requiresCorrectToolForDrops();
     private static final BlockBehaviour.Properties gemProperties = BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.COLOR_PURPLE)
                          .strength(1.0f).sound(SoundType.AMETHYST).requiresCorrectToolForDrops();
     // Create
@@ -128,8 +133,7 @@ public class BlockInit {
         () -> new Block(metalProperties));
 
     public static final RegistryObject<BlockInfuser> BLOCK_ENCHANT_INFUSER = BLOCKS.register("block_infuser", BlockInfuser::new);
-    public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER = ITEMS.register("block_infuser",
-            () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties().tab(bTab)));
+
 
         // * * * * * * * * * * * * Temporary * * * * * * * * * * * * \\
     public static final RegistryObject<Block> BLOCK_ORE_RUBY = BLOCKS.register("block_ore_ruby",
@@ -236,5 +240,7 @@ public class BlockInit {
     public static final RegistryObject<Item> ITEM_BLOCK_INGOT_ULTIMATE = ITEMS.register("block_ingot_ultimate",
         () -> new BlockItemEnchanted(BLOCK_INGOT_ULTIMATE.get(), new Item.Properties().tab(bTab).rarity(GOLD)));
 
+    public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER = ITEMS.register("block_infuser",
+            () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties().tab(bTab)));
 
 }

@@ -740,8 +740,15 @@
 		"firstperson_righthand": {
 			"scale": [1.1, 1.1, 1.1]
 		},
+		"gui": {
+			"rotation": [0, 0, -45],
+			"translation": [-6.25, -6.5, 0],
+			"scale": [1, 0.83, 1]
+		},
 		"fixed": {
-			"scale": [1.25, 1.25, 1.25]
+			"rotation": [0, -180, -45],
+			"translation": [6.5, -7.25, -1.5],
+			"scale": [1.25, 0.95, 1.25]
 		}
 	},
 	"groups": [

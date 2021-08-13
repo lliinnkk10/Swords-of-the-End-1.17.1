@@ -145,6 +145,11 @@ public class ItemSwordLevel extends ItemSword {
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 		ItemStack stack = player.getMainHandItem();
 
+		if(player.isShiftKeyDown()) {
+			stack.getOrCreateTag().putBoolean(this.tagDragon, true);
+			stack.getOrCreateTag().putBoolean(this.tagWither, true);
+		}
+
 		if(checkMS(stack) == 10) {
 			player.getCooldowns().addCooldown(this, sec*30);
 			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sec*30, 2));

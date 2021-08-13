@@ -11,9 +11,9 @@ import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nullable;
 
-public class LightsaberNBT implements ItemPropertyFunction {
+public class LightsaberNBT implements ClampedItemPropertyFunction {
     @Override
-    public float call(ItemStack stack, @Nullable ClientLevel world, @Nullable LivingEntity entity, int num) {
+    public float unclampedCall(ItemStack stack, @Nullable ClientLevel world, @Nullable LivingEntity entity, int num) {
         Item item = stack.getItem();
 
         float R1 = 0.0f, G1 = 0.2f, B1 = 0.4f, P1 = 0.6f, BL1 = 0.8f; // Retracted

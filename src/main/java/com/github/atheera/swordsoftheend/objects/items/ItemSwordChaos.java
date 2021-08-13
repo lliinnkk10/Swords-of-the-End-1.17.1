@@ -192,6 +192,7 @@ public class ItemSwordChaos extends ItemSword {
                     case 1 -> {
                         System.out.println(fx + " hurt player");
                         player.hurt(ModDamageSource.stupidity(player), 10);
+                        player.sendMessage(new TextComponent("Why are you hitting yourself??"), player.getUUID());
                     }
                     case 2 -> {
                         System.out.println(fx + " teleport player");

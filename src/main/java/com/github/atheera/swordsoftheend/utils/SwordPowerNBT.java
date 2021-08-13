@@ -2,6 +2,7 @@ package com.github.atheera.swordsoftheend.utils;
 
 import com.github.atheera.swordsoftheend.objects.items.ItemSwordLevel;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -9,9 +10,9 @@ import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nullable;
 
-public class SwordPowerNBT implements ItemPropertyFunction {
+public class SwordPowerNBT implements ClampedItemPropertyFunction {
     @Override
-    public float call(ItemStack stack, @Nullable ClientLevel worldIn, @Nullable LivingEntity entity, int num) {
+    public float unclampedCall(ItemStack stack, @Nullable ClientLevel worldIn, @Nullable LivingEntity entity, int num) {
         float MS0 = 0.0f;
         float MS1 = 0.25f;
         float MS2 = 0.5f;

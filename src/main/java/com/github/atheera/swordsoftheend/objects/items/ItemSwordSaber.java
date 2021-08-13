@@ -178,10 +178,12 @@ public class ItemSwordSaber extends ItemSword {
         String clr = nbt.getString(this.TAGCOLOR);
         boolean act = nbt.getBoolean(this.TAGACTIVE);
 
+        tooltip.add(new TextComponent(white + "Energy remaining: " + aqua + nrg));
+        tooltip.add(new TextComponent(white + "Current source: " + aqua + clr));
+        tooltip.add(new TextComponent(white + "Active: " + aqua + act));
         if(KeyboardHelper.isHoldingShift()) {
-            tooltip.add(new TextComponent(white + "Energy remaining: " + aqua + nrg));
-            tooltip.add(new TextComponent(white + "Current source: " + aqua + clr));
-            tooltip.add(new TextComponent(white + "Active: " + aqua + act));
+            tooltip.add(new TextComponent(white + "Shift+rightclick to change color and add energy"));
+            tooltip.add(new TextComponent(white + "Rightclick to with/draw the saber"));
         } else {
             tooltip.add(new TextComponent(white + "Hold " + purple + "SHIFT" + white + " for more information"));
         }
@@ -190,9 +192,7 @@ public class ItemSwordSaber extends ItemSword {
 
     @Override
     public Rarity getRarity(ItemStack stack) {
-        String clr = stack.getOrCreateTag().getString(this.TAGCOLOR);
-        return switch(clr) {
-            case "red" -> Rarities.RED;
+        return switch(stack.getOrCreateTag().getString(this.TAGCOLOR)) {
             case "green" -> Rarities.GREEN;
             case "blue" -> Rarities.BLUE;
             case "purple" -> Rarities.PURPLE;
