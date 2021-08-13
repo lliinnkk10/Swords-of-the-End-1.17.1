@@ -205,7 +205,7 @@ public class ItemSwordChaos extends ItemSword {
                                     player.getZ() + rand.nextInt(5), true);
                             if(oPos != player.position()) flag = true;
                         }
-                        player.sendMessage(new TextComponent("???"), player.getUUID());
+                        player.sendMessage(new TextComponent("Poof!"), player.getUUID());
                     }
                     case 3 -> {
                         System.out.println(fx + " heal player");
