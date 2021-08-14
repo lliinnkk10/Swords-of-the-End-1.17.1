@@ -1,6 +1,36 @@
 {
   "replace": false,
   "values": [
-    "swordsoftheend:block_infuser"
+    "swordsoftheend:block_infuser",
+    "swordsoftheend:block_ore_deep_ruby",
+    "swordsoftheend:block_ore_ruby",
+    "swordsoftheend:block_crystal_ruby_e",
+    "swordsoftheend:block_ore_deep_sapphire",
+    "swordsoftheend:block_ore_sapphire",
+    "swordsoftheend:block_crystal_sapphire_e",
+    "swordsoftheend:block_crystal_amethyst_e",
+    "swordsoftheend:block_ore_shadite",
+    "swordsoftheend:block_ore_nether_shadite",
+    "swordsoftheend:block_raw_lumin",
+    "swordsoftheend:block_smelt_shadite",
+    "swordsoftheend:block_smelt_shadite_e",
+    "swordsoftheend:block_ore_gold",
+    "swordsoftheend:block_ore_deep_gold",
+    "swordsoftheend:block_raw_gold",
+    "swordsoftheend:block_smelt_gold",
+    "swordsoftheend:block_smelt_gold_e",
+    "swordsoftheend:block_ore_lumin",
+    "swordsoftheend:block_ore_deep_lumin",
+    "swordsoftheend:block_raw_lumin",
+    "swordsoftheend:block_smelt_lumin",
+    "swordsoftheend:block_smelt_lumin_e",
+    "swordsoftheend:block_ore_magic",
+    "swordsoftheend:block_ore_deep_magic",
+    "swordsoftheend:block_magic",
+    "swordsoftheend:block_end_e",
+    "swordsoftheend:block_gem_diamond_e",
+    "swordsoftheend:block_gem_emerald_e",
+    "swordsoftheend:block_gem_ultimate",
+    "swordsoftheend:block_ingot_ultimate"
   ]
 }

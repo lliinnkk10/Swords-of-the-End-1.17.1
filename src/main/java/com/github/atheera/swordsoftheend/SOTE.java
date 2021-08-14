@@ -1,10 +1,12 @@
 package com.github.atheera.swordsoftheend;
 
+import com.github.atheera.swordsoftheend.client.gui.InfuserScreen;
 import com.github.atheera.swordsoftheend.inits.*;
 import com.github.atheera.swordsoftheend.utils.ClientEventBus;
 import com.github.atheera.swordsoftheend.utils.config.Config;
 import com.github.atheera.swordsoftheend.utils.recipe.potions.*;
 import com.github.atheera.swordsoftheend.world.OreGeneration;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,11 +61,13 @@ public class SOTE {
         modEventBus.addListener(this::doClientStuff);
 
         EnchantInit.ENCHANT.register(modEventBus);
-        ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
         BlockInit.ITEMS.register(modEventBus);
+        ItemInit.ITEMS.register(modEventBus);
         PotionInit.POTIONS.register(modEventBus);
         EntityInit.ENTITY.register(modEventBus);
+        EntityInit.BLOCKENTITIES.register(modEventBus);
+        ContainerInit.CONTAINERS.register(modEventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::addFeaturesToBiomes);
@@ -77,6 +81,7 @@ public class SOTE {
     }
     
     private void doClientStuff(final FMLClientSetupEvent event) {
+        MenuScreens.register(ContainerInit.INFUSER_GENERATOR_CONTAINER.get(), InfuserScreen::new);
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
     }
 

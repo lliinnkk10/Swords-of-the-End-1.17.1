@@ -31,15 +31,15 @@ public class BlockStates extends BlockStateProvider {
 
         ResourceLocation sides = new ResourceLocation(SOTE.MOD_ID, "blocks/block_infuser_side"); // side textures
         ResourceLocation top = new ResourceLocation(SOTE.MOD_ID, "blocks/block_infuser_top"); // top textures
-        BlockModelBuilder modelInfuser = models().cube // front model
+        BlockModelBuilder modelInfuser = models().cube // unpowered model
                 ("block_infuser", top, top, new ResourceLocation(SOTE.MOD_ID, "blocks/block_infuser_off"), sides, sides, sides);
-        BlockModelBuilder modelInfuserPowered = models().cube // front model
+        BlockModelBuilder modelInfuserPowered = models().cube // powered model
                 ("block_infuser_on", top, top, new ResourceLocation(SOTE.MOD_ID, "blocks/block_infuser_on"), sides, sides, sides);
-        orientedBlock(BlockInit.BLOCK_ENCHANT_INFUSER.get(), state -> {
-            if(state.getValue(BlockStateProperties.POWERED)) {
-                return modelInfuserPowered;
-            } else {
+        orientedBlock(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get(), state -> {
+            if(!state.getValue(BlockStateProperties.POWERED)) {
                 return modelInfuser;
+            } else {
+                return modelInfuserPowered;
             }
         });
     }

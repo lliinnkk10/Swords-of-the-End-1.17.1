@@ -11,8 +11,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
 
-import static com.github.atheera.swordsoftheend.SOTE.DISTANCE_PROPERTY;
-
 public class ItemGenerator extends ItemModelProvider {
 
     public ItemGenerator(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -35,7 +33,7 @@ public class ItemGenerator extends ItemModelProvider {
                 .override().predicate(DISTANCE_PROPERTY, 2).model(createTestModel(2)).end()
                 .override().predicate(DISTANCE_PROPERTY, 3).model(createTestModel(3)).end();*/
 
-        withExistingParent(Objects.requireNonNull(BlockInit.ITEM_BLOCK_ENCHANT_INFUSER.get().getRegistryName()).getPath(), new ResourceLocation(SOTE.MOD_ID, "block/block_infuser"));
+        withExistingParent(Objects.requireNonNull(BlockInit.ITEM_BLOCK_ENCHANT_INFUSER_GENERATOR.get().getRegistryName()).getPath(), new ResourceLocation(SOTE.MOD_ID, "block/block_infuser"));
 
     }
 

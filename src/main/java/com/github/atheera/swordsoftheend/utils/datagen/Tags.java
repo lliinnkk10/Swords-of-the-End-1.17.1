@@ -19,7 +19,7 @@ public class Tags extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .add(BlockInit.BLOCK_ENCHANT_INFUSER.get())
+            .add(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get())
 
             .add(BlockInit.BLOCK_ORE_DEEP_RUBY.get())
             .add(BlockInit.BLOCK_ORE_RUBY.get())
@@ -60,7 +60,7 @@ public class Tags extends BlockTagsProvider {
             .add(BlockInit.BLOCK_INGOT_ULTIMATE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
-            .add(BlockInit.BLOCK_ENCHANT_INFUSER.get())
+            .add(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get())
 
             .add(BlockInit.BLOCK_ORE_DEEP_RUBY.get())
             .add(BlockInit.BLOCK_ORE_RUBY.get())

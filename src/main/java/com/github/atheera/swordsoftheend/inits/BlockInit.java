@@ -132,7 +132,7 @@ public class BlockInit {
     public static final RegistryObject<Block> BLOCK_INGOT_ULTIMATE = BLOCKS.register("block_ingot_ultimate",
         () -> new Block(metalProperties));
 
-    public static final RegistryObject<BlockInfuser> BLOCK_ENCHANT_INFUSER = BLOCKS.register("block_infuser", BlockInfuser::new);
+    public static final RegistryObject<BlockInfuser> BLOCK_ENCHANT_INFUSER_GENERATOR = BLOCKS.register("block_infuser", BlockInfuser::new);
 
 
         // * * * * * * * * * * * * Temporary * * * * * * * * * * * * \\
@@ -240,7 +240,7 @@ public class BlockInit {
     public static final RegistryObject<Item> ITEM_BLOCK_INGOT_ULTIMATE = ITEMS.register("block_ingot_ultimate",
         () -> new BlockItemEnchanted(BLOCK_INGOT_ULTIMATE.get(), new Item.Properties().tab(bTab).rarity(GOLD)));
 
-    public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER = ITEMS.register("block_infuser",
-            () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties().tab(bTab)));
+    public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER_GENERATOR = ITEMS.register("block_infuser",
+            () -> new BlockItem(BLOCK_ENCHANT_INFUSER_GENERATOR.get(), new Item.Properties().tab(bTab)));
 
 }

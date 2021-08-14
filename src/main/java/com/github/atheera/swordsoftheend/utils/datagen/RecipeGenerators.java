@@ -1,22 +1,13 @@
 package com.github.atheera.swordsoftheend.utils.datagen;
 
 import com.github.atheera.swordsoftheend.inits.BlockInit;
-import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 
-import java.util.Collection;
 import java.util.function.Consumer;
 
 public class RecipeGenerators extends RecipeProvider {
@@ -43,7 +34,7 @@ public class RecipeGenerators extends RecipeProvider {
 
 */
 
-        ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER.get())
+        ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get())
                 .pattern("MSM")
                 .pattern("GFL")
                 .pattern("MEM")
