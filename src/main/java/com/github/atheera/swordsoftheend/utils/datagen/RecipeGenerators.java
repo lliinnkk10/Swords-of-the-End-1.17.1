@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
@@ -35,19 +36,31 @@ public class RecipeGenerators extends RecipeProvider {
 */
 
         ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get())
-                .pattern("MSM")
-                .pattern("GFL")
-                .pattern("MEM")
-                .define('M', BlockInit.ITEM_BLOCK_MAGIC.get())
-                .define('S', BlockInit.ITEM_BLOCK_SMELT_SHADITE_E.get())
-                .define('G', BlockInit.ITEM_BLOCK_SMELT_GOLD_E.get())
-                .define('F', Items.FURNACE)
-                .define('L', BlockInit.ITEM_BLOCK_SMELT_LUMIN_E.get())
-                .define('E', Items.ENCHANTING_TABLE)
-                .group("swordsoftheend")
-                .unlockedBy("magic", InventoryChangeTrigger.TriggerInstance.hasItems(BlockInit.ITEM_BLOCK_MAGIC.get()))
-                .save(consumer);
+            .pattern("MSM")
+            .pattern("GFL")
+            .pattern("MEM")
+            .define('M', BlockInit.ITEM_BLOCK_MAGIC.get())
+            .define('S', BlockInit.ITEM_BLOCK_SMELT_SHADITE_E.get())
+            .define('G', BlockInit.ITEM_BLOCK_SMELT_GOLD_E.get())
+            .define('F', Items.FURNACE)
+            .define('L', BlockInit.ITEM_BLOCK_SMELT_LUMIN_E.get())
+            .define('E', Items.ENCHANTING_TABLE)
+            .group("swordsoftheend")
+            .unlockedBy("magic", InventoryChangeTrigger.TriggerInstance.hasItems(BlockInit.ITEM_BLOCK_MAGIC.get()))
+            .save(consumer);
 
+        ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER.get())
+            .pattern("MGM")
+            .pattern("IFI")
+            .pattern("MEM")
+            .define('M', BlockInit.ITEM_BLOCK_MAGIC.get())
+            .define('I', BlockInit.ITEM_BLOCK_INGOT_ULTIMATE.get())
+            .define('G', BlockInit.ITEM_BLOCK_GEM_ULTIMATE.get())
+            .define('F', Items.NETHER_STAR)
+            .define('E', Items.ENCHANTING_TABLE)
+            .group("swordsoftheend")
+            .unlockedBy("enchanter", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ENCHANTING_TABLE))
+            .save(consumer);
     }
 }
 

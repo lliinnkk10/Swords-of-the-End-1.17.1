@@ -42,6 +42,9 @@ public class LootTables extends LootTableProvider {
         tables.put(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get().getLootTable(),
             createStandardTable("infuser", BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get()).
             setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(BlockInit.BLOCK_ENCHANT_INFUSER.get().getLootTable(),
+            createStandardTable("enchanter", BlockInit.BLOCK_ENCHANT_INFUSER.get()).
+            setParamSet(LootContextParamSets.BLOCK).build());
         writeTables(cache, tables);
     }
 

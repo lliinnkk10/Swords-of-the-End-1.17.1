@@ -7,6 +7,8 @@ import com.github.atheera.swordsoftheend.utils.config.Config;
 import com.github.atheera.swordsoftheend.utils.recipe.potions.*;
 import com.github.atheera.swordsoftheend.world.OreGeneration;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
@@ -82,6 +84,14 @@ public class SOTE {
     
     private void doClientStuff(final FMLClientSetupEvent event) {
         MenuScreens.register(ContainerInit.INFUSER_GENERATOR_CONTAINER.get(), InfuserScreen::new);
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.translucent());
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
     }
 

@@ -3,6 +3,7 @@ package com.github.atheera.swordsoftheend.client.gui;
 import com.github.atheera.swordsoftheend.SOTE;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -26,7 +27,7 @@ public class InfuserScreen extends AbstractContainerScreen<InfuserContainer> {
 
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        drawString(matrixStack, Minecraft.getInstance().font, "Enchantment Energy: " + menu.getEnergy(), 10, 10, 0xffffff);
+        drawString(matrixStack, Minecraft.getInstance().font, "Enchantment Energy: " + ChatFormatting.LIGHT_PURPLE + menu.getEnergy(), 10, 10, 0xffffff);
     }
 
     @Override

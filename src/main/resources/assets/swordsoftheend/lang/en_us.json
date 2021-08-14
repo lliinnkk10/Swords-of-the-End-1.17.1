@@ -123,7 +123,8 @@
 	"block.swordsoftheend.block_gem_emerald_e": "Enchanted Emerald Block",
 	"block.swordsoftheend.block_end_e": "Enchanted Ender Pearl Block",
 
-	"block.swordsoftheend.block_infuser": "Enchantment Infuser",
+	"block.swordsoftheend.block_infuser": "Enchantment Infusion Generator",
+	"block.swordsoftheend.block_enchanter": "Enchantment Infuser",
 
 	"block.swordsoftheend.block_bud_large_ruby": "Large Ruby Bud",
 	"block.swordsoftheend.block_bud_medium_ruby": "Medium Ruby Bud",

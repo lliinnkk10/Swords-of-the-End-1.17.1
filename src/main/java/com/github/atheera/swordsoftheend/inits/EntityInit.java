@@ -1,6 +1,7 @@
 package com.github.atheera.swordsoftheend.inits;
 
 import com.github.atheera.swordsoftheend.entities.thrown.MagmaballEntity;
+import com.github.atheera.swordsoftheend.objects.blocks.BlockEnchanterBE;
 import com.github.atheera.swordsoftheend.objects.blocks.BlockInfuserBE;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -26,5 +27,6 @@ public class EntityInit {
     // Block Entities
     public static final RegistryObject<BlockEntityType<BlockInfuserBE>> BLOCK_INFUSER_BE = BLOCKENTITIES.register("block_infuser",
             () -> BlockEntityType.Builder.of(BlockInfuserBE::new, BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get()).build(null));
-
+    public static final RegistryObject<BlockEntityType<BlockEnchanterBE>> BLOCK_ENCHANTER_BE = BLOCKENTITIES.register("block_enchanter",
+            () -> BlockEntityType.Builder.of(BlockEnchanterBE::new, BlockInit.BLOCK_ENCHANT_INFUSER.get()).build(null));
 }
