@@ -84,15 +84,7 @@ public class SOTE {
     
     private void doClientStuff(final FMLClientSetupEvent event) {
         MenuScreens.register(ContainerInit.INFUSER_GENERATOR_CONTAINER.get(), InfuserScreen::new);
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_ENCHANT_INFUSER.get(), RenderType.translucent());
+        registerTranslucent();
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
     }
 
@@ -118,6 +110,17 @@ public class SOTE {
 
     }
 
+    private void registerTranslucent() {
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_RUBY.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_ENCHANT_INFUSER.get(), RenderType.translucent());
+    }
 
     private void registerPotions() {
         BrewingRecipeRegistry.addRecipe(new StrengthPotion());
