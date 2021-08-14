@@ -25,11 +25,6 @@ public class BlockStates extends BlockStateProvider {
     @Override
     public void registerStatesAndModels() {
         registerInfuserBlock();
-        registerEnchanterBlock();
-    }
-
-    private void registerEnchanterBlock() {
-        simpleBlock(BlockInit.BLOCK_ENCHANT_INFUSER.get());
     }
 
     private void registerInfuserBlock() {

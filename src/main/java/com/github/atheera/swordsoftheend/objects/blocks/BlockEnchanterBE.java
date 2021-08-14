@@ -72,8 +72,8 @@ public class BlockEnchanterBE extends BlockEntity {
 
     public void tickClient(BlockState state) {
         if(hasPower) {
-            BlockPos pos = this.worldPosition;
-            level.addParticle(ParticleTypes.CLOUD, pos.getX()+.5, pos.getY() + 1.0, pos.getZ()+.5, 0.0, 0.0, 0.0);
+            BlockPos p = this.worldPosition;
+            level.addParticle(ParticleTypes.CLOUD, p.getX()+.5, p.getY() + 1.0, p.getZ()+.5, 0.0, 0.0, 0.0);
         }
     }
 

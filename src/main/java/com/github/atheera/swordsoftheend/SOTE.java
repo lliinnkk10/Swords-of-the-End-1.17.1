@@ -92,6 +92,7 @@ public class SOTE {
         ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_ENCHANT_INFUSER.get(), RenderType.translucent());
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
     }
 
