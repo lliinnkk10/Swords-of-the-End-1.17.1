@@ -1,13 +1,16 @@
 package com.github.atheera.swordsoftheend.objects.blocks;
 
 import com.github.atheera.swordsoftheend.inits.EntityInit;
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.materials.CustomEnergyStorage;
+import com.github.atheera.swordsoftheend.objects.items.ItemCore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -15,14 +18,20 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlockEnchanterBE extends BlockEntity {
 
+    private final ItemStackHandler coreHandler = createCoreHandler();
+    private final ItemStackHandler swordHandler = createSwordHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
 
+    private final LazyOptional<IItemHandler> cHandler = LazyOptional.of(() -> coreHandler);
+    private final LazyOptional<IItemHandler> sHandler = LazyOptional.of(() -> swordHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     private boolean hasPower = false;
@@ -34,7 +43,57 @@ public class BlockEnchanterBE extends BlockEntity {
     @Override
     public void setRemoved() {
         super.setRemoved();
+        cHandler.invalidate();
+        sHandler.invalidate();
         energy.invalidate();
+    }
+
+    private ItemStackHandler createCoreHandler() {
+        return new ItemStackHandler(1) {
+            @Override
+            protected void onContentsChanged(int slot) {
+                setChanged();
+            }
+
+            @Override
+            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+                return (stack.getItem() instanceof ItemCore);
+            }
+
+            @Nonnull
+            @Override
+            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+                if(!(stack.getItem() instanceof ItemCore)) {
+                    return stack;
+                }
+
+                return super.insertItem(slot, stack, simulate);
+            }
+        };
+    }
+
+    private ItemStackHandler createSwordHandler() {
+        return new ItemStackHandler(1) {
+            @Override
+            protected void onContentsChanged(int slot) {
+                setChanged();
+            }
+
+            @Override
+            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+                return (stack.getItem() == ItemInit.ITEM_SWORD_BASE.get());
+            }
+
+            @Nonnull
+            @Override
+            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+                if(!(stack.getItem() == ItemInit.ITEM_SWORD_BASE.get())) {
+                    return stack;
+                }
+
+                return super.insertItem(slot, stack, simulate);
+            }
+        };
     }
 
     @Nullable
@@ -81,9 +140,13 @@ public class BlockEnchanterBE extends BlockEntity {
 
     @Override
     public void load(CompoundTag tag) {
-        if(tag.contains("energy")) {
+        if(tag.contains("energy"))
             energyStorage.deserializeNBT(tag.get("energy"));
-        }
+        if(tag.contains("sword"))
+            swordHandler.deserializeNBT((CompoundTag) tag.get("sword"));
+        if(tag.contains("core"))
+            coreHandler.deserializeNBT((CompoundTag) tag.get("core"));
+
         super.load(tag);
     }
 

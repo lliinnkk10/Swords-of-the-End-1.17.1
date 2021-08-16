@@ -43,7 +43,7 @@ public class LootTables extends LootTableProvider {
             createStandardTable("infuser", BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get()).
             setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(BlockInit.BLOCK_ENCHANT_INFUSER.get().getLootTable(),
-            createStandardTable("enchanter", BlockInit.BLOCK_ENCHANT_INFUSER.get()).
+            createComplexTable("enchanter", BlockInit.BLOCK_ENCHANT_INFUSER.get()).
             setParamSet(LootContextParamSets.BLOCK).build());
         writeTables(cache, tables);
     }
@@ -60,6 +60,22 @@ public class LootTables extends LootTableProvider {
                 .apply(SetContainerContents.setContents()
                     .withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))))
             );
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createComplexTable(String name, Block block) {
+        LootPool.Builder builder = LootPool.lootPool()
+            .name(name)
+            .setRolls(ConstantValue.exactly(1))
+            .add(LootItem.lootTableItem(block))
+                .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
+                .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+                    .copy("sword", "BlockEntityTag.sword", CopyNbtFunction.MergeStrategy.REPLACE)
+                    .copy("core", "BlockEntityTag.core", CopyNbtFunction.MergeStrategy.REPLACE)
+                    .copy("energy", "BlockEntityTag.energy", CopyNbtFunction.MergeStrategy.REPLACE))
+                .apply(SetContainerContents.setContents()
+                    .withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents")))
+                );
         return LootTable.lootTable().withPool(builder);
     }
 

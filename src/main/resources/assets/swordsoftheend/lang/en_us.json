@@ -67,6 +67,13 @@
 	"item.swordsoftheend.item_core_ultimate": "Ultimate Core",
 	"item.swordsoftheend.item_core_shadite": "Shadite Core",
 	"item.swordsoftheend.item_core_master": "Master Core",
+	"item.swordsoftheend.item_core_saber": "Lightsaber Core",
+
+	"item.swordsoftheend.item_crystal_ruby": "Ruby Crystal",
+	"item.swordsoftheend.item_crystal_sapphire": "Sapphire Crystal",
+	"item.swordsoftheend.item_crystal_amethyst": "Amethyst Crystal",
+	"item.swordsoftheend.item_crystal_emerald": "Emerald Crystal",
+	"item.swordsoftheend.item_crystal_diamond": "Diamond Crystal",
 
 	"item.swordsoftheend.item_sword_base": "Basic Sword",
 	"item.swordsoftheend.item_sword_emerald": "Death",

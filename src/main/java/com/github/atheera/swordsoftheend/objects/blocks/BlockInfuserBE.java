@@ -100,10 +100,12 @@ public class BlockInfuserBE extends BlockEntity {
 
     @Override
     public void load(CompoundTag tag) {
-        itemHandler.deserializeNBT(tag.getCompound("inv"));
-        energyStorage.deserializeNBT(tag.get("energy"));
-
-        counter = tag.getInt("counter");
+        if(tag.contains("inv"))
+            itemHandler.deserializeNBT(tag.getCompound("inv"));
+        if(tag.contains("energy"))
+            energyStorage.deserializeNBT(tag.get("energy"));
+        if(tag.contains("counter"))
+            counter = tag.getInt("counter");
         super.load(tag);
     }
 

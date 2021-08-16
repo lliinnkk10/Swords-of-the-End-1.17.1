@@ -1,9 +1,17 @@
 package com.github.atheera.swordsoftheend.objects.blocks;
 
+import com.github.atheera.swordsoftheend.client.gui.EnchanterContainer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
@@ -16,6 +24,8 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -56,5 +66,30 @@ public class BlockEnchanter extends Block implements EntityBlock {
                 }
             };
         }
+    }
+
+    @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+        if(!level.isClientSide) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if(blockEntity instanceof BlockEnchanterBE) {
+                MenuProvider container = new MenuProvider() {
+                    @Override
+                    public Component getDisplayName() {
+                        return new TextComponent("Enchantment Infuser");
+                    }
+
+                    @Nullable
+                    @Override
+                    public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player) {
+                        return new EnchanterContainer(windowId, level, pos, inventory, player);
+                    }
+                };
+                NetworkHooks.openGui((ServerPlayer) player, container, blockEntity.getBlockPos());
+            } else {
+                throw new IllegalStateException("Our named container provider is missing!");
+            }
+        }
+        return InteractionResult.SUCCESS;
     }
 }

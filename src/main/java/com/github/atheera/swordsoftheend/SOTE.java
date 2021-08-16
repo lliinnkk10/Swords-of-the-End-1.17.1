@@ -1,6 +1,8 @@
 package com.github.atheera.swordsoftheend;
 
+import com.github.atheera.swordsoftheend.client.gui.EnchanterScreen;
 import com.github.atheera.swordsoftheend.client.gui.InfuserScreen;
+import com.github.atheera.swordsoftheend.client.gui.LightsaberScreen;
 import com.github.atheera.swordsoftheend.inits.*;
 import com.github.atheera.swordsoftheend.utils.ClientEventBus;
 import com.github.atheera.swordsoftheend.utils.config.Config;
@@ -50,11 +52,8 @@ public class SOTE {
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.server_config);
 
-        try {
-            Config.loadConfig(Config.server_config, FMLPaths.CONFIGDIR.get().resolve("swordsoftheend.toml").toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        try { Config.loadConfig(Config.server_config, FMLPaths.CONFIGDIR.get().resolve("swordsoftheend.toml").toString()); }
+        catch (IOException e) { e.printStackTrace(); }
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
@@ -84,6 +83,8 @@ public class SOTE {
     
     private void doClientStuff(final FMLClientSetupEvent event) {
         MenuScreens.register(ContainerInit.INFUSER_GENERATOR_CONTAINER.get(), InfuserScreen::new);
+        MenuScreens.register(ContainerInit.LIGHTSABER_CONTAINER.get(), LightsaberScreen::new);
+        MenuScreens.register(ContainerInit.INFUSION_ENCHANTER_CONTAINER.get(), EnchanterScreen::new);
         registerTranslucent();
     	event.enqueueWork(ClientEventBus::registerPropertyOverride);
     }

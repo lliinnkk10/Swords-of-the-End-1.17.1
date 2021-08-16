@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.client.gui.LightsaberContainer;
 import com.github.atheera.swordsoftheend.materials.Rarities;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import com.google.common.collect.HashMultimap;
@@ -8,8 +9,10 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -19,13 +22,17 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSwordSaber extends ItemSword {
@@ -97,6 +104,22 @@ public class ItemSwordSaber extends ItemSword {
         boolean act = nbt.getBoolean(this.TAGACTIVE);
 
         if(player.isShiftKeyDown()) {
+            /*if(!world.isClientSide) {
+                MenuProvider container = new MenuProvider() {
+                    @Override
+                    public Component getDisplayName() {
+                        return new TextComponent("Lightsaber Inventory");
+                    }
+
+                    @Override
+                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInv, Player player) {
+                        return new LightsaberContainer(windowId, world, playerInv, player);
+                    }
+                };
+                NetworkHooks.openGui((ServerPlayer) player, container);
+            } else {
+                throw new IllegalStateException("Our named container provider is missing!");
+            }*/
             nbt.putInt(this.TAGENERGY, nbt.getInt(this.TAGENERGY) + 50);
             switch(clr) {
                 case "red" -> nbt.putString(this.TAGCOLOR, colors[1]);

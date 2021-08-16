@@ -95,7 +95,7 @@ public class BlockInfuser extends Block implements EntityBlock {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TextComponent("Enchantment Infuser Generator");
+                        return new TextComponent("Enchantment Infusion Generator");
                     }
 
                     @Override

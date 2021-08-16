@@ -2,6 +2,7 @@ package com.github.atheera.swordsoftheend.materials;
 
 import com.github.atheera.swordsoftheend.inits.BlockInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.objects.items.ItemCrystal;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -28,6 +29,18 @@ public class SOTEHooks {
             if (item == ItemInit.ITEM_DUST_MAGIC_E.get()) return 5;
         }
         return 0;
+    }
+
+    public static boolean lsCrystalValid(ItemStack stack) {
+        if(stack.isEmpty()) {
+            return false;
+        } else {
+            Item item = stack.getItem();
+            if (item instanceof ItemCrystal) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

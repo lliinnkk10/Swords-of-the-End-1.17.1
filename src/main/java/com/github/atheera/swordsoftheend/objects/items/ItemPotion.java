@@ -27,7 +27,10 @@ import net.minecraft.world.item.Item.Properties;
 
 public class ItemPotion extends Item {
     public ItemPotion() {
-        super(new Item.Properties().tab(CreativeTabInit.SOTE_I_CMT).rarity(Rarities.PURPLE).stacksTo(1));
+        super(new Item.Properties()
+                .tab(CreativeTabInit.SOTE_I_CMT)
+                .rarity(Rarities.PURPLE)
+                .stacksTo(1));
     }
 
     @Override
@@ -125,7 +128,7 @@ public class ItemPotion extends Item {
     }
 
     public boolean isFoil(ItemStack stack) {
-        return super.isFoil(stack) || !PotionUtils.getMobEffects(stack).isEmpty();
+        return true;
     }
 
 }
