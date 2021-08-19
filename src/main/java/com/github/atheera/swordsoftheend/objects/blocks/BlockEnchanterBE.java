@@ -3,6 +3,7 @@ package com.github.atheera.swordsoftheend.objects.blocks;
 import com.github.atheera.swordsoftheend.inits.EntityInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.materials.CustomEnergyStorage;
+import com.github.atheera.swordsoftheend.materials.SOTEHooks;
 import com.github.atheera.swordsoftheend.objects.items.ItemCore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +19,7 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -57,13 +59,13 @@ public class BlockEnchanterBE extends BlockEntity {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return (stack.getItem() instanceof ItemCore);
+                return (SOTEHooks.isCoreValid(stack));
             }
 
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if(!(stack.getItem() instanceof ItemCore)) {
+                if(!SOTEHooks.isCoreValid(stack)) {
                     return stack;
                 }
 
@@ -124,19 +126,23 @@ public class BlockEnchanterBE extends BlockEntity {
     }
 
     public void tickServer(BlockState state) {
+        //boolean swordCheck = swordHandler.getStackInSlot(0).equals(ItemInit.ITEM_SWORD_BASE.get().getDefaultInstance());
+        //boolean coreCheck = SOTEHooks.isCoreValid(coreHandler.getStackInSlot(1));
         if(hasEnoughPowerToWork()) {
             energyStorage.consumeEnergy(10);
         }
     }
 
     public void tickClient(BlockState state) {
-        if(hasPower) {
+        if(hasPower && level != null) {
             BlockPos p = this.worldPosition;
-            level.addParticle(ParticleTypes.CLOUD, p.getX()+.5, p.getY() + 1.0, p.getZ()+.5, 0.0, 0.0, 0.0);
+            level.addParticle(ParticleTypes.PORTAL, p.getX()+.5, p.getY() + 1.0, p.getZ()+.5, 0.0, 0.0, 0.0);
         }
     }
 
-    private boolean hasEnoughPowerToWork() { return energyStorage.getEnergyStored() >= 10; }
+    private boolean hasEnoughPowerToWork() {
+        return energyStorage.getEnergyStored() >= 1000;
+    }
 
     @Override
     public void load(CompoundTag tag) {
@@ -144,8 +150,7 @@ public class BlockEnchanterBE extends BlockEntity {
             energyStorage.deserializeNBT(tag.get("energy"));
         if(tag.contains("sword"))
             swordHandler.deserializeNBT((CompoundTag) tag.get("sword"));
-        if(tag.contains("core"))
-            coreHandler.deserializeNBT((CompoundTag) tag.get("core"));
+        if(tag.contains("core")) coreHandler.deserializeNBT((CompoundTag) tag.get("core"));
 
         super.load(tag);
     }
@@ -153,6 +158,8 @@ public class BlockEnchanterBE extends BlockEntity {
     @Override
     public CompoundTag save(CompoundTag tag) {
         tag.put("energy", energyStorage.serializeNBT());
+        tag.put("sword", swordHandler.serializeNBT());
+        tag.put("core", coreHandler.serializeNBT());
         return super.save(tag);
     }
 
@@ -175,6 +182,10 @@ public class BlockEnchanterBE extends BlockEntity {
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if(cap == CapabilityEnergy.ENERGY) {
             return energy.cast();
+        }
+        if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            cHandler.cast();
+            return sHandler.cast();
         }
         return super.getCapability(cap, side);
     }

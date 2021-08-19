@@ -5,8 +5,8 @@ import com.github.atheera.swordsoftheend.inits.ContainerInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.materials.CustomEnergyStorage;
 import com.github.atheera.swordsoftheend.materials.SOTEHooks;
-import com.github.atheera.swordsoftheend.objects.items.ItemCore;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -37,8 +37,10 @@ public class EnchanterContainer extends AbstractContainerMenu {
 
         if(blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 81, 23));
-                addSlot(new SlotItemHandler(h, 1, 81, 45));
+                this.addSlot(new SlotItemHandler(h, 0, 82, 24));
+            });
+            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+                addSlot(new SlotItemHandler(h, 1, 82, 41));
             });
         }
 
@@ -101,12 +103,12 @@ public class EnchanterContainer extends AbstractContainerMenu {
                 }
                 slot.onQuickCraft(stack, itemStack);
             } else {
-                if(stack.getItem() instanceof ItemCore) {
-                    if(!this.moveItemStackTo(stack, 0, 1, false)) {
+                if(SOTEHooks.isCoreValid(stack)) {
+                    if(!this.moveItemStackTo(stack, 49, 49, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if(stack.getItem() == ItemInit.ITEM_SWORD_BASE.get()) {
-                    if(!this.moveItemStackTo(stack, 1, 2, false)) {
+                    if(!this.moveItemStackTo(stack, 50, 50, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if(index < 29) {

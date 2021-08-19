@@ -156,6 +156,7 @@ public class ItemInit {
 	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_DIAMOND = ITEMS.register(CRYSTAL_DIAMOND, ItemCrystal::new);
 	public static final RegistryObject<Item> ITEM_BATTERY_LIGHTSABER = ITEMS.register(BATTERY_LIGHTSABER, () -> new Item(new Item.Properties().tab(iTab)));
 
+
 	// * * * * * * * * * * * * Swords * * * * * * * * * * * * \\
 	public static final RegistryObject<ItemSwordBase> ITEM_SWORD_BASE = ITEMS.register(SWORD_BASE,
 		() -> new ItemSwordBase(ModToolTier.BASE, 8, -2.4f, new Item.Properties().tab(sTab).rarity(Rarities.PURPLE)));
@@ -189,4 +190,9 @@ public class ItemInit {
 		() -> new ItemSwordUltimate(ModToolTier.TIERONE, 24, -2.0f, swordProp));
 
 	//public static final RegistryObject<ItemToolChisel> ITEM_TOOL_CHISEL = ITEMS.register("item_tool_chisel", () -> new ItemToolChisel(new Item.Properties().tab(sTab).rarity(BLUE)));
+
+	// * * * * * * * * * * * * Misc * * * * * * * * * * * * \\
+	public static final RegistryObject<ItemSwordChaos> ITEM_ENTITY_SWORDSLASH = ITEMS.register("sword_slash_entity",
+		() -> new ItemSwordChaos(ModToolTier.TIERONE, 0, -2.4f, swordProp));
+
 }

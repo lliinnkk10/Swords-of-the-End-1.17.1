@@ -1,5 +1,7 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.entities.thrown.ThrownSwordSlash;
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import com.github.atheera.swordsoftheend.utils.KeyboardHelper;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -7,11 +9,14 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -20,8 +25,6 @@ import net.minecraft.world.level.Level;
 
 import javax.annotation.Nonnull;
 import java.util.List;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class ItemSwordMaster extends ItemSword {
 
@@ -56,9 +59,7 @@ public class ItemSwordMaster extends ItemSword {
 
     //Local variables
     private final int cooldown = 200;
-    private final int milestone1 = 10;
-    private final int milestone2 = 20;
-    private final int milestone3 = 30;
+    private final int milestone1 = 10, milestone2 = 20, milestone3 = 30;
 
     public ItemSwordMaster(Tier tier, int damage, float speed, Properties properties) {
         super(tier, damage, speed, properties);
@@ -111,8 +112,8 @@ public class ItemSwordMaster extends ItemSword {
             if (!tagcharged) { tooltip.add(new TextComponent(ChatFormatting.RED + "Sword is broken! Time until repaired: " + (cooldown - tagtimer)));
                 if (tagtimer >= cooldown && !tagcharged) { tooltip.remove(1); }
             }
-            tooltip.add(new TextComponent(white + "Durability remaining: " + (nbt.getInt(tagDurability))));
-            tooltip.add(new TextComponent(white + "Current level: " + taglevel));
+            tooltip.add(new TextComponent(white + "Durability remaining: " + purple + (nbt.getInt(tagDurability))));
+            tooltip.add(new TextComponent(white + "Current level: " + purple + taglevel));
             tooltip.add(new TextComponent(white + "Current " + purple + nbt.getInt(tagWitherLvl) + white + " withers slain"));
             tooltip.add(new TextComponent(white + "Current " + purple + nbt.getInt(tagDragonLvl) + white + " dragons slain"));
             tooltip.add(new TextComponent(white + "Slash charges remaining: " + nbt.getInt(tagCharges)));
@@ -121,6 +122,24 @@ public class ItemSwordMaster extends ItemSword {
         }
 
         super.appendHoverText(stack, world, tooltip, flagIn);
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        ItemStack stack = player.getMainHandItem();
+        CompoundTag nbt = stack.getOrCreateTag();
+        int charges = nbt.getInt(tagCharges);
+
+        if(charges >= 1 && !world.isClientSide) {
+            player.getCooldowns().addCooldown(this, sec * 5);
+            ThrownSwordSlash slash = new ThrownSwordSlash(world, player);
+            slash.setItem(ItemInit.ITEM_ENTITY_SWORDSLASH.get().getDefaultInstance());
+            slash.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 2.5f, 0.0f);
+            world.addFreshEntity(slash);
+            nbt.putInt(tagCharges, charges - 1);
+        }
+
+        return InteractionResultHolder.success(stack);
     }
 
     @Override
@@ -207,22 +226,17 @@ public class ItemSwordMaster extends ItemSword {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         CompoundTag nbt = stack.getOrCreateTag();
-        int taglevel = nbt.getInt(tagLevel);
-        boolean tagwither = nbt.getBoolean(tagWither);
-        boolean tagdragon = nbt.getBoolean(tagDragon);
         Multimap<Attribute, AttributeModifier> multimap = HashMultimap.create();
 
         if(slot == EquipmentSlot.MAINHAND) {
             if(nbt.getBoolean(tagCharged)) {
-                if(taglevel < milestone1) {
+                if(checkMS(stack) == 0) {
                     multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier",(double)9, AttributeModifier.Operation.ADDITION ));
-                } else if((taglevel >= milestone1 && taglevel < milestone2 && !tagwither) ||
-                        (taglevel >= milestone1 && !tagwither)) {
+                } else if(checkMS(stack) == 1) {
                     multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier",(double)19, AttributeModifier.Operation.ADDITION ));
-                } else if(((taglevel >= milestone2 && taglevel < milestone3) && tagwither) ||
-                        ((taglevel >= milestone2 && tagwither) && !tagdragon)) {
+                } else if(checkMS(stack) == 2) {
                     multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier",(double)29, AttributeModifier.Operation.ADDITION ));
-                } else if(taglevel >= milestone3 && tagdragon && tagwither) {
+                } else if(checkMS(stack) == 3) {
                     multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier",(double)39, AttributeModifier.Operation.ADDITION ));
                 }
             } else {

@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -75,13 +74,13 @@ public class LightsaberContainer extends AbstractContainerMenu {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return SOTEHooks.lsCrystalValid(stack);
+                return SOTEHooks.isCrystalValid(stack);
             }
 
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if(!SOTEHooks.lsCrystalValid(stack)) {
+                if(!SOTEHooks.isCrystalValid(stack)) {
                     return stack;
                 }
 
@@ -103,7 +102,7 @@ public class LightsaberContainer extends AbstractContainerMenu {
                 }
                 slot.onQuickCraft(stack, itemStack);
             } else {
-                if(SOTEHooks.lsCrystalValid(stack)) {
+                if(SOTEHooks.isCrystalValid(stack)) {
                     if(!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

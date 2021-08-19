@@ -23,7 +23,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-@OnlyIn(Dist.CLIENT)
 public class ThrownRandomEntity extends ThrowableItemProjectile {
 
     public ThrownRandomEntity(EntityType<? extends ThrownEnderpearl> p_37491_, Level p_37492_) {
@@ -34,6 +33,7 @@ public class ThrownRandomEntity extends ThrowableItemProjectile {
         super(EntityType.ENDER_PEARL, entity, world);
     }
 
+    @Override
     protected Item getDefaultItem() {
         return ItemInit.ITEM_SWORD_CHAOS.get();
     }

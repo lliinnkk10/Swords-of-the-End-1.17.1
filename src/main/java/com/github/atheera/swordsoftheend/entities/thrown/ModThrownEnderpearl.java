@@ -23,7 +23,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
-@OnlyIn(Dist.CLIENT)
 public class ModThrownEnderpearl extends ThrowableItemProjectile {
 
     ThrownEnderpearl thrownEnderpearl;
@@ -36,17 +35,20 @@ public class ModThrownEnderpearl extends ThrowableItemProjectile {
         super(EntityType.ENDER_PEARL, entity, world);
     }
 
+    @Override
     protected Item getDefaultItem() {
         return ItemInit.ITEM_TIER_END.get();
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult entity) {
         super.onHitEntity(entity);
         entity.getEntity().hurt(DamageSource.thrown(this, entity.getEntity()), 4.0F);
     }
 
-    protected void onHit(HitResult p_37504_) {
-        super.onHit(p_37504_);
+    @Override
+    protected void onHit(HitResult hit) {
+        super.onHit(hit);
 
         for(int i = 0; i < 32; ++i) {
             this.level.addParticle(ParticleTypes.PORTAL, this.getX(), this.getY() + this.random.nextDouble() * 2.0D, this.getZ(), this.random.nextGaussian(), 0.0D, this.random.nextGaussian());
@@ -54,8 +56,7 @@ public class ModThrownEnderpearl extends ThrowableItemProjectile {
 
         if (!this.level.isClientSide && !this.isRemoved()) {
             Entity entity = this.getOwner();
-            if (entity instanceof ServerPlayer) {
-                ServerPlayer serverplayer = (ServerPlayer)entity;
+            if (entity instanceof ServerPlayer serverplayer) {
                 if (serverplayer.connection.getConnection().isConnected() && serverplayer.level == this.level && !serverplayer.isSleeping()) {
                     net.minecraftforge.event.entity.EntityTeleportEvent.EnderPearl event = net.minecraftforge.event.ForgeEventFactory.onEnderPearlLand(serverplayer, this.getX(), this.getY(), this.getZ(), thrownEnderpearl, 5.0F);
                     if (!event.isCanceled()) { // Don't indent to lower patch size
@@ -80,6 +81,7 @@ public class ModThrownEnderpearl extends ThrowableItemProjectile {
 
     }
 
+    @Override
     public void tick() {
         Entity entity = this.getOwner();
         if (entity instanceof Player && !entity.isAlive()) {
@@ -91,6 +93,7 @@ public class ModThrownEnderpearl extends ThrowableItemProjectile {
     }
 
     @Nullable
+    @Override
     public Entity changeDimension(ServerLevel p_37506_, net.minecraftforge.common.util.ITeleporter teleporter) {
         Entity entity = this.getOwner();
         if (entity != null && entity.level.dimension() != p_37506_.dimension()) {

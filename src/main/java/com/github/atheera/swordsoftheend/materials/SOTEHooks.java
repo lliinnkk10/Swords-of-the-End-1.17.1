@@ -2,6 +2,7 @@ package com.github.atheera.swordsoftheend.materials;
 
 import com.github.atheera.swordsoftheend.inits.BlockInit;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.objects.items.ItemCore;
 import com.github.atheera.swordsoftheend.objects.items.ItemCrystal;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,16 +32,22 @@ public class SOTEHooks {
         return 0;
     }
 
-    public static boolean lsCrystalValid(ItemStack stack) {
+    public static boolean isCoreValid(ItemStack stack) {
         if(stack.isEmpty()) {
             return false;
         } else {
             Item item = stack.getItem();
-            if (item instanceof ItemCrystal) {
-                return true;
-            }
+            return item instanceof ItemCore;
         }
-        return false;
+    }
+
+    public static boolean isCrystalValid(ItemStack stack) {
+        if(stack.isEmpty()) {
+            return false;
+        } else {
+            Item item = stack.getItem();
+            return item instanceof ItemCrystal;
+        }
     }
 
 }

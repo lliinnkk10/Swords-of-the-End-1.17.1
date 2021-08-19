@@ -44,7 +44,6 @@ public class MagmaballEntity extends AbstractMagmaballEntity {
         return stack.isEmpty() ? new ItemStack(ItemInit.ITEM_TIER_RUBY.get()) : stack;
     }
 
-
     @Override
     public void setItem(ItemStack stack) {
         super.setItem(ItemInit.ITEM_TIER_RUBY.get().getDefaultInstance());

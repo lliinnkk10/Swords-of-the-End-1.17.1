@@ -104,10 +104,12 @@ public class ItemSwordChaos extends ItemSword {
             }
             case 6 -> {
                 System.out.println(fx);
-                ThrownRandomEntity tre = new ThrownRandomEntity(world, player);
-                tre.setItem(ItemInit.ITEM_SWORD_CHAOS.get().getDefaultInstance());
-                tre.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 1.0f);
-                world.addFreshEntity(tre);
+                if(!world.isClientSide) {
+                    ThrownRandomEntity tre = new ThrownRandomEntity(world, player);
+                    tre.setItem(ItemInit.ITEM_SWORD_CHAOS.get().getDefaultInstance());
+                    tre.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 1.0f);
+                    world.addFreshEntity(tre);
+                }
             }
             default -> {
                 System.out.println(fx + " ERROR");

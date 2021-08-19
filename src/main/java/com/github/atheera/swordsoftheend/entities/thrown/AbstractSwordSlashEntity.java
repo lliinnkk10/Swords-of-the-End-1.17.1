@@ -1,6 +1,5 @@
-package com.github.atheera.swordsoftheend.entities.item;
+package com.github.atheera.swordsoftheend.entities.thrown;
 
-import com.github.atheera.swordsoftheend.entities.thrown.MagmaballEntity;
 import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -19,42 +18,40 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class AbstractMagmaballEntity extends AbstractHurtingProjectile implements ItemSupplier {
-    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(AbstractMagmaballEntity.class, EntityDataSerializers.ITEM_STACK);
+public class AbstractSwordSlashEntity extends AbstractHurtingProjectile implements ItemSupplier {
+    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(AbstractSwordSlashEntity.class, EntityDataSerializers.ITEM_STACK);
 
-    public AbstractMagmaballEntity(EntityType<? extends MagmaballEntity> entityType, Level world) {
-        super(entityType, world);
+    public AbstractSwordSlashEntity(EntityType<? extends SwordSlashEntity> type, Level world) {
+        super(type, world);
     }
 
-    public AbstractMagmaballEntity(EntityType<? extends LargeFireball> entity, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
-        super(entity, x, y, z, accelX, accelY, accelZ, world);
+    public AbstractSwordSlashEntity(EntityType<? extends LargeFireball> type, double x, double y, double z, double accelX, double accelY, double accelZ, Level world) {
+        super(type, x, y, z, accelX, accelY, accelZ, world);
     }
 
-    public AbstractMagmaballEntity(EntityType<? extends LargeFireball> entityType, LivingEntity entity, double x, double y, double z, Level world) {
+    public AbstractSwordSlashEntity(EntityType<? extends LargeFireball> entityType, LivingEntity entity, double x, double y, double z, Level world) {
         super(entityType, entity, x, y, z, world);
     }
 
+    @Override
+    public ItemStack getItem() {
+        ItemStack stack = this.getItemRaw();
+        return stack.isEmpty() ? new ItemStack(ItemInit.ITEM_ENTITY_SWORDSLASH.get()) : stack;
+    }
+
     public void setItem(ItemStack stack) {
-        if(stack.getItem() != ItemInit.ITEM_TIER_RUBY.get() || stack.hasTag())
+        if(stack.getItem() != ItemInit.ITEM_ENTITY_SWORDSLASH.get() || stack.hasTag()) {
             this.getEntityData().set(STACK, Util.make(stack.copy(), (st) -> {
                 st.setCount(1);
             }));
+        }
     }
 
     public ItemStack getItemRaw() {
         return getEntityData().get(STACK);
     }
 
-    @Override
-    public ItemStack getItem() {
-        ItemStack stack = this.getItemRaw();
-        return stack.isEmpty() ? new ItemStack(ItemInit.ITEM_TIER_RUBY.get()) : stack;
-    }
-
-    @Override
     protected void defineSynchedData() {
         this.getEntityData().define(STACK, ItemStack.EMPTY);
     }
@@ -88,6 +85,5 @@ public class AbstractMagmaballEntity extends AbstractHurtingProjectile implement
     protected boolean canHitEntity(Entity entity) {
         return true;
     }
-
 
 }
