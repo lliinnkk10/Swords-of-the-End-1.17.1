@@ -5,8 +5,6 @@ import com.github.atheera.swordsoftheend.client.gui.EnchanterContainer;
 import com.github.atheera.swordsoftheend.client.gui.InfuserContainer;
 import com.github.atheera.swordsoftheend.client.gui.LightsaberContainer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeContainerType;

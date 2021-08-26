@@ -39,9 +39,6 @@ public class EnchanterContainer extends AbstractContainerMenu {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
                 this.addSlot(new SlotItemHandler(h, 0, 82, 24));
             });
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 1, 82, 41));
-            });
         }
 
         layoutPlayerInventorySlots(10, 70);
