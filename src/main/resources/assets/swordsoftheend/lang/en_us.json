@@ -91,6 +91,8 @@
 	"item.swordsoftheend.item_sword_shadite": "Ethereal Blade",
 	"item.swordsoftheend.item_sword_master": "Master Sword",
 
+	"item.swordsoftheend.item_shade_spawn_egg": "Spawn Shade Entity",
+
 	"block.swordsoftheend.block_ore_shadite": "Shadite Ore",
 	"block.swordsoftheend.block_ore_nether_shadite": "Netherite Shadite Ore",
 	"block.swordsoftheend.block_ore_gold": "Energized Gold Ore",
@@ -131,7 +133,7 @@
 	"block.swordsoftheend.block_end_e": "Enchanted Ender Pearl Block",
 
 	"block.swordsoftheend.block_infuser": "Enchantment Infusion Generator",
-	"block.swordsoftheend.block_enchanter": "Enchantment Infuser",
+	"block.swordsoftheend.block_enchanter": "Enchantment Infuser WIP",
 
 	"block.swordsoftheend.block_bud_large_ruby": "Large Ruby Bud",
 	"block.swordsoftheend.block_bud_medium_ruby": "Medium Ruby Bud",
@@ -140,6 +142,8 @@
 	"block.swordsoftheend.block_bud_medium_sapphire": "Medium Sapphire Bud",
 	"block.swordsoftheend.block_bud_small_sapphire": "Small Sapphire Bud",
 
-	"death.attack.stupidity": "You were killed by stupidity!"
+	"death.attack.stupidity": "You were killed by stupidity!",
+
+	"entity.swordsoftheend.shade_entity": "Shade"
 	
 }

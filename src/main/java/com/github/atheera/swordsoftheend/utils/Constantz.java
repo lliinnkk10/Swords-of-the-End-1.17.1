@@ -32,10 +32,12 @@ public class Constantz {
         public static final String END_E = "block_end_e";
 
     // * * * * * * * * * * * * Gems * * * * * * * * * * * * \\
+    public static final String BUDDING_RUBY = "block_budding_ruby";
     public static final String CLUSTER_RUBY = "block_cluster_ruby";
     public static final String BUD_LARGE_RUBY = "block_bud_large_ruby";
     public static final String BUD_MEDIUM_RUBY = "block_bud_medium_ruby";
     public static final String BUD_SMALL_RUBY = "block_bud_small_ruby";
+    public static final String BUDDING_SAPPHIRE = "block_budding_sapphire";
     public static final String CLUSTER_SAPPHIRE = "block_cluster_sapphire";
     public static final String BUD_LARGE_SAPPHIRE = "block_bud_large_sapphire";
     public static final String BUD_MEDIUM_SAPPHIRE = "block_bud_medium_sapphire";
@@ -170,6 +172,7 @@ public class Constantz {
     public static final String SWORD_DIAMOND = "item_sword_diamond";
     public static final String SWORD_EMERALD = "item_sword_emerald";
     public static final String SWORD_END = "item_sword_end";
+    public static final String SWORD_KING = "item_sword_king";
     public static final String SWORD_LEVEL = "item_sword_level";
     public static final String SWORD_LUMIN = "item_sword_lumin";
     public static final String SWORD_MASTER = "item_sword_master";
@@ -179,5 +182,11 @@ public class Constantz {
     public static final String SWORD_SHADITE = "item_sword_shadite";
     public static final String SWORD_THUNDER = "item_sword_thunder";
     public static final String SWORD_ULTIMATE = "item_sword_ultimate";
+
+    // * * * * * * * * * * * * Bows * * * * * * * * * * * * \\
+    public static final String BOW_MULTI = "item_bow_multi";
+
+    // * * * * * * * * * * * * Misc * * * * * * * * * * * * \\
+    public static final String SHADE_SPAWN_EGG = "item_shade_spawn_egg";
 
 }

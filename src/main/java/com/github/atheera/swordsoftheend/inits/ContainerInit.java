@@ -16,6 +16,8 @@ import static com.github.atheera.swordsoftheend.utils.Constantz.*;
 
 public class ContainerInit {
 
+    private ContainerInit() {}
+
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, SOTE.MOD_ID);
 
     public static final RegistryObject<MenuType<InfuserContainer>> INFUSER_GENERATOR_CONTAINER = CONTAINERS.register(ENCHANT_INFUSER_GENERATOR,

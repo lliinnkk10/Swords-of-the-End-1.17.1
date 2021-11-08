@@ -19,6 +19,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class PotionInit {
 
+    private PotionInit() {}
+
     private static final int sec = 20;
     private static final int min = sec*60;
 

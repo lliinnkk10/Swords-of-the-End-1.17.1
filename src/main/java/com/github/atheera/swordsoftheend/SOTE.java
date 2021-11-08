@@ -56,10 +56,6 @@ public class SOTE {
         catch (IOException e) { e.printStackTrace(); }
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::setup);
-        modEventBus.addListener(this::enqueueIMC);
-        modEventBus.addListener(this::processIMC);
-        modEventBus.addListener(this::doClientStuff);
 
         EnchantInit.ENCHANT.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
@@ -70,6 +66,11 @@ public class SOTE {
         EntityInit.BLOCKENTITIES.register(modEventBus);
         ContainerInit.CONTAINERS.register(modEventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
+
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::enqueueIMC);
+        modEventBus.addListener(this::processIMC);
+        modEventBus.addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::addFeaturesToBiomes);
         
@@ -112,15 +113,15 @@ public class SOTE {
     }
 
     private void registerTranslucent() {
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_RUBY.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_ENCHANT_INFUSER.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_RUBY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_RUBY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_RUBY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_RUBY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_CLUSTER_SAPPHIRE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_LARGE_SAPPHIRE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_MEDIUM_SAPPHIRE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_BUD_SMALL_SAPPHIRE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.BLOCK_ENCHANT_INFUSER.get(), RenderType.cutout());
     }
 
     private void registerPotions() {

@@ -42,7 +42,7 @@ public class ThrownSwordSlash extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult entity) {
         super.onHitEntity(entity);
-        entity.getEntity().hurt(DamageSource.thrown(this, entity.getEntity()), 10.0f);
+        entity.getEntity().hurt(DamageSource.thrown(this, entity.getEntity()), 15.0f);
         this.discard();
     }
 

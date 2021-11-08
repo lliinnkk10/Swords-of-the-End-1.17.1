@@ -1,12 +1,14 @@
 package com.github.atheera.swordsoftheend.utils.datagen;
 
 import com.github.atheera.swordsoftheend.inits.BlockInit;
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
@@ -15,7 +17,6 @@ public class RecipeGenerators extends RecipeProvider {
     public RecipeGenerators(DataGenerator p_125973_) {
         super(p_125973_);
     }
-
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {

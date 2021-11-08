@@ -13,6 +13,8 @@ import static com.github.atheera.swordsoftheend.SOTE.MOD_ID;
 
 public class EnchantInit {
 
+    private EnchantInit() {}
+
     public static final DeferredRegister<Enchantment> ENCHANT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MOD_ID);
 
     public static final RegistryObject<Enchantment> LIFESTEAL = ENCHANT.register("lifesteal",

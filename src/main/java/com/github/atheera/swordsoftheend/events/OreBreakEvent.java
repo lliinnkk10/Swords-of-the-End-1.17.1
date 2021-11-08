@@ -77,7 +77,7 @@ public class OreBreakEvent {
                     enchantLvl = map.get(Enchantments.BLOCK_FORTUNE);
                     switch (enchantLvl) {
                         case 1 -> {
-                            e.setExpToDrop(10);
+                            e.setExpToDrop(5);
                             if (BOG || BODG) spawnItem(e, IIGR, 1);
                             if (BOL || BODL) spawnItem(e, IILR, 1);
                             if (BOS || BONS) spawnItem(e, IISR, 1);
@@ -86,7 +86,7 @@ public class OreBreakEvent {
                             if (BOSA || BODS)spawnItem(e, IGSS, 2);
                         }
                         case 2 -> {
-                            e.setExpToDrop(20);
+                            e.setExpToDrop(8);
                             if (BOG || BODG) spawnItem(e, IIGR, 2);
                             if (BOL || BODL) spawnItem(e, IILR, 2);
                             if (BOS || BONS) spawnItem(e, IISR, 2);
@@ -95,7 +95,7 @@ public class OreBreakEvent {
                             if (BOSA || BODS)spawnItem(e, IGSS, 4);
                         }
                         case 3 -> {
-                            e.setExpToDrop(30);
+                            e.setExpToDrop(12);
                             if (BOG || BODG) spawnItem(e, IIGR, 3);
                             if (BOL || BODL) spawnItem(e, IILR, 3);
                             if (BOS || BONS) spawnItem(e, IISR, 3);
@@ -124,7 +124,7 @@ public class OreBreakEvent {
                     }
                 }
             } else {
-                e.setExpToDrop(10);
+                e.setExpToDrop(3);
                 if (BOG || BODG) spawnItem(e, IIGR, 0);
                 if (BOL || BODL) spawnItem(e, IILR, 0);
                 if (BOS || BONS) spawnItem(e, IISR, 0);

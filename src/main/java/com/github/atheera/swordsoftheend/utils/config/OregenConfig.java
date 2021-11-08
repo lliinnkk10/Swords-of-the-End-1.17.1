@@ -1,7 +1,5 @@
 package com.github.atheera.swordsoftheend.utils.config;
 
-import com.electronwill.nightconfig.core.UnmodifiableConfig;
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class OregenConfig {
@@ -23,8 +21,6 @@ public class OregenConfig {
         this.bottom = 0;
         this.top = 0;
     }
-
-
 
     public static ForgeConfigSpec.IntValue shadite_size;
     public static ForgeConfigSpec.IntValue shadite_count;

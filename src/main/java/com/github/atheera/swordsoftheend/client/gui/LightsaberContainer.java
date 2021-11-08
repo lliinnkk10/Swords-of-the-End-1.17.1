@@ -49,16 +49,15 @@ public class LightsaberContainer extends AbstractContainerMenu {
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 Item item = stack.getItem();
-                return (item == ItemInit.ITEM_BATTERY_LIGHTSABER.get());
+              //  return (item == ItemInit.ITEM_BATTERY_LIGHTSABER.get());
+                return true;
             }
 
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
                 Item item = stack.getItem();
-                if(item == ItemInit.ITEM_BATTERY_LIGHTSABER.get()) {
-                    return stack;
-                }
+               // if(item == ItemInit.ITEM_BATTERY_LIGHTSABER.get()) {return stack;}
 
                 return super.insertItem(slot, stack, simulate);
             }
@@ -106,11 +105,8 @@ public class LightsaberContainer extends AbstractContainerMenu {
                     if(!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if(stack.getItem() == ItemInit.ITEM_BATTERY_LIGHTSABER.get()) {
-                    if(!this.moveItemStackTo(stack, 1, 2, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if(index < 29) {
+                } //else if(stack.getItem() == ItemInit.ITEM_BATTERY_LIGHTSABER.get()) {if(!this.moveItemStackTo(stack, 1, 2, false)) {return ItemStack.EMPTY;}}
+                else if(index < 29) {
                     if(!this.moveItemStackTo(stack, 29, 38, false)) {
                         return ItemStack.EMPTY;
                     }

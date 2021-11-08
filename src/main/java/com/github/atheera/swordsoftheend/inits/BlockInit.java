@@ -8,10 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.block.AmethystBlock;
-import net.minecraft.world.level.block.AmethystClusterBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -23,6 +20,8 @@ import static com.github.atheera.swordsoftheend.utils.Constantz.*;
 import static com.github.atheera.swordsoftheend.SOTE.MOD_ID;
 
 public class BlockInit {
+
+    private BlockInit() {}
 
     // Initiate
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
@@ -90,6 +89,8 @@ public class BlockInit {
         () -> new Block(metalProperties));
 
         // * * * * * * * * * * * * Gems * * * * * * * * * * * * \\
+    public static final RegistryObject<Block> BLOCK_BUDDING_RUBY = BLOCKS.register(BUDDING_RUBY,
+        () -> new BuddingAmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST)));
     public static final RegistryObject<Block> BLOCK_CLUSTER_RUBY = BLOCKS.register(CLUSTER_RUBY,
         () -> new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST)
         .noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5f).lightLevel((p_152651_) -> 5).noOcclusion()));
@@ -102,6 +103,8 @@ public class BlockInit {
     public static final RegistryObject<Block> BLOCK_BUD_SMALL_RUBY = BLOCKS.register(BUD_SMALL_RUBY,
         () -> new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(BLOCK_CLUSTER_RUBY.get())
         .sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((p_152629_) -> 1).noOcclusion()));
+    public static final RegistryObject<Block> BLOCK_BUDDING_SAPPHIRE = BLOCKS.register(BUDDING_SAPPHIRE,
+        () -> new BuddingAmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST)));
     public static final RegistryObject<Block> BLOCK_CLUSTER_SAPPHIRE = BLOCKS.register(CLUSTER_SAPPHIRE,
         () -> new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST)
         .noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5f).lightLevel((p_152651_) -> 5).noOcclusion()));
@@ -152,7 +155,7 @@ public class BlockInit {
     public static final RegistryObject<Item> ITEM_BLOCK_ORE_RUBY = ITEMS.register(ORE_RUBY,
         () -> new BlockItem(BLOCK_ORE_RUBY.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_ORE_DEEP_RUBY= ITEMS.register(ORE_DEEP_RUBY,
-            () -> new BlockItem(BLOCK_ORE_DEEP_RUBY.get(), new Item.Properties().tab(bTab)));
+        () -> new BlockItem(BLOCK_ORE_DEEP_RUBY.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_ORE_SAPPHIRE = ITEMS.register(ORE_SAPPHIRE,
         () -> new BlockItem(BLOCK_ORE_SAPPHIRE.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_ORE_DEEP_SAPPHIRE = ITEMS.register(ORE_DEEP_SAPPHIRE,
@@ -204,6 +207,8 @@ public class BlockInit {
         () -> new BlockItemEnchanted(BLOCK_END_E.get(), new Item.Properties().tab(bTab).rarity(BLUE)));
 
             // * * * * * * * * * * * * Gems * * * * * * * * * * * * \\
+    public static final RegistryObject<Item> ITEM_BLOCK_BUDDING_RUBY = ITEMS.register(BUDDING_RUBY,
+        () -> new BlockItem(BLOCK_BUDDING_RUBY.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_CLUSTER_RUBY = ITEMS.register(CLUSTER_RUBY,
         () -> new BlockItem(BLOCK_CLUSTER_RUBY.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_BUD_LARGE_RUBY = ITEMS.register(BUD_LARGE_RUBY,
@@ -212,6 +217,8 @@ public class BlockInit {
         () -> new BlockItem(BLOCK_BUD_MEDIUM_RUBY.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_BUD_SMALL_RUBY = ITEMS.register(BUD_SMALL_RUBY,
         () -> new BlockItem(BLOCK_BUD_SMALL_RUBY.get(), new Item.Properties().tab(bTab)));
+    public static final RegistryObject<Item> ITEM_BLOCK_BUDDING_SAPPHIRE = ITEMS.register(BUDDING_SAPPHIRE,
+        () -> new BlockItem(BLOCK_BUDDING_SAPPHIRE.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_CLUSTER_SAPPHIRE = ITEMS.register(CLUSTER_SAPPHIRE,
         () -> new BlockItem(BLOCK_CLUSTER_SAPPHIRE.get(), new Item.Properties().tab(bTab)));
     public static final RegistryObject<Item> ITEM_BLOCK_BUD_LARGE_SAPPHIRE = ITEMS.register(BUD_LARGE_SAPPHIRE,
@@ -242,8 +249,8 @@ public class BlockInit {
 
         // * * * * * * * * * * * * Functionality Blocks * * * * * * * * * * * * \\
     public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER_GENERATOR = ITEMS.register(ENCHANT_INFUSER_GENERATOR,
-            () -> new BlockItem(BLOCK_ENCHANT_INFUSER_GENERATOR.get(), new Item.Properties().tab(bTab)));
+        () -> new BlockItem(BLOCK_ENCHANT_INFUSER_GENERATOR.get(), new Item.Properties()));
     public static final RegistryObject<Item> ITEM_BLOCK_ENCHANT_INFUSER = ITEMS.register(ENCHANT_INFUSER,
-            () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties().tab(bTab)));
+        () -> new BlockItem(BLOCK_ENCHANT_INFUSER.get(), new Item.Properties()));
 
 }

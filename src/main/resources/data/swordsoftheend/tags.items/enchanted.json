@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "swordsoftheend:item_gem_amethyst_e",
+    "swordsoftheend:item_gem_ruby_e",
+    "swordsoftheend:item_gem_sapphire_e",
+    "swordsoftheend:item_gem_diamond_e",
+    "swordsoftheend:item_gem_emerald_e"
+  ]
+}

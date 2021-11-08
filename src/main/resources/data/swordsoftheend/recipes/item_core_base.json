@@ -1,25 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "rns",
+    "ene",
     "#x#",
-    "end"
+    "ene"
   ],
   "key": {
     "x": {
       "item": "swordsoftheend:block_magic"
     },
-    "r": {
-      "item": "swordsoftheend:item_gem_ruby_e"
-    },
     "e": {
-      "item": "swordsoftheend:item_gem_emerald_e"
-    },
-    "d": {
-      "item": "swordsoftheend:item_gem_diamond_e"
-    },
-    "s": {
-      "item": "swordsoftheend:item_gem_sapphire_e"
+      "tag": "swordsoftheend:enchanted"
     },
     "#": {
       "item": "minecraft:netherite_scrap"

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "swordsoftheend:block_budding_ruby",
+    "swordsoftheend:block_cluster_ruby",
+    "swordsoftheend:block_bud_large_ruby",
+    "swordsoftheend:block_bud_medium_ruby",
+    "swordsoftheend:block_bud_small_ruby",
+    "swordsoftheend:block_budding_sapphire",
+    "swordsoftheend:block_cluster_sapphire",
+    "swordsoftheend:block_bud_large_sapphire",
+    "swordsoftheend:block_bud_medium_sapphire",
+    "swordsoftheend:block_bud_small_sapphire"
+  ]
+}
