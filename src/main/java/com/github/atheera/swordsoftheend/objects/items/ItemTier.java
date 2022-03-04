@@ -1,5 +1,6 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
+import com.github.atheera.swordsoftheend.inits.ItemInit;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -19,8 +20,14 @@ public class ItemTier extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        p_41423_.add(new TextComponent(ChatFormatting.AQUA + "This item is created when lightning strikes a blaze rod"));
-        super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+
+        Item item = stack.getItem();
+
+        if(item == ItemInit.ITEM_TIER_THUNDER.get()) list.add(new TextComponent(ChatFormatting.AQUA + "This item is created when lightning strikes a blaze rod"));
+        if(item == ItemInit.ITEM_TIER_AMETHYST.get()) list.add(new TextComponent(ChatFormatting.AQUA + "This item is dropped by bats"));
+        if(item == ItemInit.ITEM_TIER_SHADITE.get()) list.add(new TextComponent(ChatFormatting.AQUA + "This item is dropped by Wither Skeletons"));
+
+        super.appendHoverText(stack, level, list, flag);
     }
 }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "O@O",
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_tier_shadite"
+    },
+    "X": {
+      "item": "swordsoftheend:item_tier2_shadite"
+    },
+    "O": {
+      "item": "swordsoftheend:block_smelt_shadite_e"
+    },
+    "@": {
+      "item": "swordsoftheend:item_core_base"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_core_shadite"
+  }
+}

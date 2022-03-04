@@ -22,6 +22,7 @@ public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SOTE.MOD_ID);
 	private static final CreativeModeTab iTab = CreativeTabInit.SOTE_I_CMT;
 	private static final CreativeModeTab sTab = CreativeTabInit.SOTE_S_CMT;
+	//private static final CreativeModeTab tTab = CreativeTabInit.SOTE_T_CMT;
 	private static final Rarity GOLD = Rarities.GOLD;
 	private static final Rarity PURP = Rarities.PURPLE;
 	private static final Rarity BLUE = Rarities.BLUE;
@@ -93,7 +94,7 @@ public class ItemInit {
 	public static final RegistryObject<ItemCore> ITEM_CORE_LUMIN = ITEMS.register(CORE_LUMIN, ItemCore::new);
 	public static final RegistryObject<ItemCore> ITEM_CORE_MASTER = ITEMS.register(CORE_MASTER, ItemCore::new);
 	public static final RegistryObject<ItemCore> ITEM_CORE_RUBY = ITEMS.register(CORE_RUBY, ItemCore::new);
-	public static final RegistryObject<ItemCore> ITEM_CORE_SABER = ITEMS.register(CORE_SABER, ItemCore::new);
+	//public static final RegistryObject<ItemCore> ITEM_CORE_SABER = ITEMS.register(CORE_SABER, ItemCore::new);
 	public static final RegistryObject<ItemCore> ITEM_CORE_SAPPHIRE = ITEMS.register(CORE_SAPPHIRE, ItemCore::new);
 	public static final RegistryObject<ItemCore> ITEM_CORE_SHADITE = ITEMS.register(CORE_SHADITE, ItemCore::new);
 	public static final RegistryObject<ItemCore> ITEM_CORE_THUNDER = ITEMS.register(CORE_THUNDER, ItemCore::new);
@@ -103,7 +104,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> ITEM_TIER_GOLDROD = ITEMS.register(TIER_GOLDROD,
 		() -> new Item(new Item.Properties().tab(iTab).rarity(GREEN)));
 	public static final RegistryObject<Item> ITEM_TIER_AMETHYST = ITEMS.register(TIER_AMETHYST,
-		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
+		() -> new ItemTier(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_DIAMOND = ITEMS.register(TIER_DIAMOND,
 		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_EMERALD = ITEMS.register(TIER_EMERALD,
@@ -121,7 +122,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> ITEM_TIER_SAPPHIRE = ITEMS.register(TIER_SAPPHIRE,
 		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_SHADITE = ITEMS.register(TIER_SHADITE,
-		() -> new Item(new Item.Properties().tab(iTab).rarity(BLUE)));
+		() -> new ItemTier(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_TF_POWER = ITEMS.register(TIER_TF_POWER,
 		() -> new ItemTF(new Item.Properties().tab(iTab).rarity(BLUE)));
 	public static final RegistryObject<Item> ITEM_TIER_TF_WISDOM = ITEMS.register(TIER_TF_WISDOM,
@@ -136,6 +137,8 @@ public class ItemInit {
 		() -> new ItemEnchanted(new Item.Properties().tab(iTab).rarity(PURP)));
 	public static final RegistryObject<Item> ITEM_TIER2_EXP = ITEMS.register(TIER2_EXP,
 		() -> new ItemEnchanted(new Item.Properties().tab(iTab).rarity(PURP).stacksTo(1)));
+	public static final RegistryObject<Item> ITEM_TIER2_SHADITE = ITEMS.register(TIER2_SHADITE,
+		() -> new ItemEnchanted(new Item.Properties().tab(iTab).rarity(PURP)));
 	public static final RegistryObject<Item> ITEM_TIER2_THUNDER = ITEMS.register(TIER2_THUNDER,
 		() -> new ItemEnchanted(new Item.Properties().tab(iTab).rarity(PURP)));
 
@@ -149,17 +152,19 @@ public class ItemInit {
 	public static final RegistryObject<Item> ITEM_POTION_DAMAGE = ITEMS.register(POTION_DAMAGE, ItemPotion::new);
 	public static final RegistryObject<Item> ITEM_POTION_POISON = ITEMS.register(POTION_POISON, ItemPotion::new);
 	public static final RegistryObject<Item> ITEM_POTION_FALLING = ITEMS.register(POTION_FALLING, ItemPotion::new);
+	public static final RegistryObject<Item> ITEM_POTION_INVIS = ITEMS.register(POTION_INVIS, ItemPotion::new);
 
 
-	// * * * * * * * * * * * * Lightsaber Crystals * * * * * * * * * * * * \\
-	//public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_RUBY = ITEMS.register(CRYSTAL_RUBY, ItemCrystal::new);
-	//public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_SAPPHIRE = ITEMS.register(CRYSTAL_SAPPHIRE, ItemCrystal::new);
-	//public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_AMETHYST = ITEMS.register(CRYSTAL_AMETHYST, ItemCrystal::new);
-	//public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_EMERALD = ITEMS.register(CRYSTAL_EMERALD, ItemCrystal::new);
-	//public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_DIAMOND = ITEMS.register(CRYSTAL_DIAMOND, ItemCrystal::new);
-	//public static final RegistryObject<Item> ITEM_BATTERY_LIGHTSABER = ITEMS.register(BATTERY_LIGHTSABER, () -> new Item(new Item.Properties().tab(iTab)));
-
-
+	// * * * * * * * * * * * * Lightsaber Items * * * * * * * * * * * * \\
+/*
+	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_RUBY = ITEMS.register(CRYSTAL_RUBY, ItemCrystal::new);
+	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_SAPPHIRE = ITEMS.register(CRYSTAL_SAPPHIRE, ItemCrystal::new);
+	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_AMETHYST = ITEMS.register(CRYSTAL_AMETHYST, ItemCrystal::new);
+	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_EMERALD = ITEMS.register(CRYSTAL_EMERALD, ItemCrystal::new);
+	public static final RegistryObject<ItemCrystal> ITEM_CRYSTAL_DIAMOND = ITEMS.register(CRYSTAL_DIAMOND, ItemCrystal::new);
+	public static final RegistryObject<Item> ITEM_LIGHTSABER_HILT = ITEMS.register(LIGHTSABER_HILT,
+		() -> new Item(new Item.Properties().tab(tTab).rarity(BLUE)));
+*/
 	// * * * * * * * * * * * * Swords * * * * * * * * * * * * \\
 	public static final RegistryObject<ItemSwordBase> ITEM_SWORD_BASE = ITEMS.register(SWORD_BASE,
 		() -> new ItemSwordBase(ModToolTier.BASE, 8, -2.4f, new Item.Properties().tab(sTab).rarity(Rarities.PURPLE)));
@@ -173,8 +178,7 @@ public class ItemInit {
 		() -> new ItemSwordEmerald(ModToolTier.TIERONE, 16, -1.8f, swordProp));
 	public static final RegistryObject<ItemSwordEnd> ITEM_SWORD_END = ITEMS.register(SWORD_END,
 		() -> new ItemSwordEnd(ModToolTier.TIERONE, 13, -2.4f, swordProp));
-	public static final RegistryObject<ItemSwordKing> ITEM_SWORD_KING = ITEMS.register(SWORD_KING,
-		() -> new ItemSwordKing(ModToolTier.TIERONE, 5, -2.4f, swordProp));
+	//public static final RegistryObject<ItemSwordKing> ITEM_SWORD_KING = ITEMS.register(SWORD_KING, () -> new ItemSwordKing(ModToolTier.TIERONE, 5, -2.4f, swordProp));
 	public static final RegistryObject<ItemSwordLevel> ITEM_SWORD_LEVEL = ITEMS.register(SWORD_LEVEL,
 		() -> new ItemSwordLevel(ModToolTier.TIERTWO, 0, -2.4f, swordProp));
 	public static final RegistryObject<ItemSwordLumin> ITEM_SWORD_LUMIN = ITEMS.register(SWORD_LUMIN,
@@ -183,8 +187,7 @@ public class ItemInit {
 		() -> new ItemSwordMaster(ModToolTier.TIERONE, 0, -2.4f, swordProp));
 	public static final RegistryObject<ItemSwordRuby> ITEM_SWORD_RUBY = ITEMS.register(SWORD_RUBY,
 		() -> new ItemSwordRuby(ModToolTier.TIERONE, 14, -2.4f, swordProp));
-	public static final RegistryObject<ItemSwordSaber> ITEM_SWORD_SABER = ITEMS.register(SWORD_SABER,
-		() -> new ItemSwordSaber(ModToolTier.TIERONE, 0, -2.4f, swordProp));
+	//public static final RegistryObject<ItemSwordSaber> ITEM_SWORD_SABER = ITEMS.register(SWORD_SABER, () -> new ItemSwordSaber(ModToolTier.TIERONE, 0, -2.4f, swordProp));
 	public static final RegistryObject<ItemSwordSapphire> ITEM_SWORD_SAPPHIRE = ITEMS.register(SWORD_SAPPHIRE,
 		() -> new ItemSwordSapphire(ModToolTier.TIERONE, 12, -2.2f, swordProp));
 	public static final RegistryObject<ItemSwordShadite> ITEM_SWORD_SHADITE = ITEMS.register(SWORD_SHADITE,
@@ -197,12 +200,12 @@ public class ItemInit {
 	// * * * * * * * * * * * * Bows * * * * * * * * * * * * \\
 	//public static final RegistryObject<ItemBowMulti> ITEM_BOW_MULTI = ITEMS.register(BOW_MULTI, () -> new ItemBowMulti(new Item.Properties().tab(sTab)));
 
-	//public static final RegistryObject<ItemToolChisel> ITEM_TOOL_CHISEL = ITEMS.register("item_tool_chisel", () -> new ItemToolChisel(new Item.Properties().tab(sTab).rarity(BLUE)));
+	// * * * * * * * * * * * * Tools * * * * * * * * * * * * \\
+	//public static final RegistryObject<ItemToolChisel> ITEM_TOOL_CHISEL = ITEMS.register(TOOL_CHISEL, () -> new ItemToolChisel(ModToolTier.CHISEL, 2, -2.4f, new Item.Properties().tab(tTab).rarity(GREEN)));
 
 	// * * * * * * * * * * * * Misc * * * * * * * * * * * * \\
 	public static final RegistryObject<ItemSwordChaos> ITEM_ENTITY_SWORDSLASH = ITEMS.register("sword_slash_entity",
 		() -> new ItemSwordChaos(ModToolTier.TIERONE, 0, -2.4f, new Item.Properties()));
-	public static final RegistryObject<ForgeSpawnEggItem> ITEM_SHADE_SPAWN_EGG = ITEMS.register(SHADE_SPAWN_EGG,
-		() -> new ForgeSpawnEggItem(EntityInit.SHADE_ENTITY, 0x0B141A, 0x636062, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	//public static final RegistryObject<ForgeSpawnEggItem> ITEM_SHADE_SPAWN_EGG = ITEMS.register(SHADE_SPAWN_EGG, () -> new ForgeSpawnEggItem(EntityInit.SHADE_ENTITY, 0x0B141A, 0x636062, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 }

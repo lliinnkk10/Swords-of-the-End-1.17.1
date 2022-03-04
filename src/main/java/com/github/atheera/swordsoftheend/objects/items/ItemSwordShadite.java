@@ -16,8 +16,6 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-import net.minecraft.world.item.Item.Properties;
-
 public class ItemSwordShadite extends ItemSword {
     public ItemSwordShadite(Tier tier, int damage, float speed, Properties properties) {
         super(tier, damage, speed, properties);
@@ -37,9 +35,11 @@ public class ItemSwordShadite extends ItemSword {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sec*15, 1));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, sec*15, 4));
         player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, sec*15));
+        player.getCooldowns().addCooldown(this, sec*30);
 
         return super.use(world, player, hand);
     }

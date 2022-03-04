@@ -70,6 +70,26 @@ public class OregenConfig {
     public static ForgeConfigSpec.IntValue deep_enchant_minHeight;
     public static ForgeConfigSpec.BooleanValue deep_enchant_spawn;
 
+    public static ForgeConfigSpec.IntValue ruby_top_maxHeight;
+    public static ForgeConfigSpec.IntValue ruby_top_minHeight;
+    public static ForgeConfigSpec.IntValue ruby_top_rarity;
+    public static ForgeConfigSpec.BooleanValue ruby_top_spawn;
+
+    public static ForgeConfigSpec.IntValue ruby_bottom_maxHeight;
+    public static ForgeConfigSpec.IntValue ruby_bottom_minHeight;
+    public static ForgeConfigSpec.IntValue ruby_bottom_rarity;
+    public static ForgeConfigSpec.BooleanValue ruby_bottom_spawn;
+
+    public static ForgeConfigSpec.IntValue sapphire_end_maxHeight;
+    public static ForgeConfigSpec.IntValue sapphire_end_minHeight;
+    public static ForgeConfigSpec.IntValue sapphire_end_rarity;
+    public static ForgeConfigSpec.BooleanValue sapphire_end_spawn;
+
+    public static ForgeConfigSpec.IntValue sapphire_over_maxHeight;
+    public static ForgeConfigSpec.IntValue sapphire_over_minHeight;
+    public static ForgeConfigSpec.IntValue sapphire_over_rarity;
+    public static ForgeConfigSpec.BooleanValue sapphire_over_spawn;
+
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.comment("Settings for Swords of the End").push("Settings");
 
@@ -139,7 +159,33 @@ public class OregenConfig {
         builder.pop();
         builder.pop();
 
+        builder.comment("Ruby Top Layer").push("RubyTopLayer");
+        ruby_top_spawn = builder.comment("Should 'Ruby Geodes' generate at top layer in nether? Default true").define("ruby_top_spawn", true);
+        ruby_top_maxHeight = builder.comment("Maximum height that top layer ruby geodes can spawn. Default 120").defineInRange("ruby_top_maxHeight", 120, 100, 125);
+        ruby_top_minHeight = builder.comment("Minimum height that top layer ruby geodes can spawn. Default 90").defineInRange("ruby_top_minHeight", 90, 80, 100);
+        ruby_top_rarity = builder.comment("Rarity of top layer ruby geodes. Default 89 (Higher numbers lower spawn chance)").defineInRange("ruby_top_rarity", 89, 20, 100);
 
+        builder.comment("Ruby Bottom Layer").push("RubyBottomLayer");
+        ruby_bottom_spawn = builder.comment("Should 'Ruby Geodes' generate at the bottom layer in the nether? Default true").define("ruby_bottom_spawn", true);
+        ruby_bottom_maxHeight = builder.comment("Maximum height that bottom layer ruby geodes can spawn. Default 25").defineInRange("ruby__bottom_maxHeight", 25, 15, 30);
+        ruby_bottom_minHeight = builder.comment("Minimum height that bottom layer ruby geodes can spawn. Default 4").defineInRange("ruby_bottom_minHeight", 4, 2, 10);
+        ruby_bottom_rarity = builder.comment("Rarity of bottom layer ruby geodes. Default 34 (Higher numbers lower spawn chance)").defineInRange("ruby_bottom_rarity", 34, 20, 100);
+        builder.pop();
+        builder.pop();
+
+        builder.comment("Sapphire End Dimension").push("SapphireEndDimension");
+        sapphire_end_spawn = builder.comment("Should 'Sapphire Geodes' generate in the End dimension? Default true").define("sapphire_end_spawn", true);
+        sapphire_end_maxHeight = builder.comment("Maximum height that end sapphire geodes can spawn. Default 50").defineInRange("sapphire_end_maxHeight", 50, 35, 60);
+        sapphire_end_minHeight = builder.comment("Minimum height that end sapphire geodes can spawn. Default 10").defineInRange("sapphire_end_minHeight", 10, 5, 25);
+        sapphire_end_rarity = builder.comment("Rarity of end sapphire geodes. Default 32 (Higher numbers lower spawn chance)").defineInRange("sapphire_end_rarity", 32, 20, 100);
+
+        builder.comment("Sapphire Overworld Dimension").push("SapphireOverworldDimension");
+        sapphire_over_spawn = builder.comment("Should 'Sapphire Geodes' generate in the Overworld dimension? Default true").define("sapphire_over_spawn", true);
+        sapphire_over_maxHeight = builder.comment("Maximum height that overworld sapphire geodes can spawn. Default 30").defineInRange("sapphire_over_maxHeight", 30, 25, 50);
+        sapphire_over_minHeight = builder.comment("Minimum height that overworld sapphire geodes can spawn. Default 10").defineInRange("sapphire_over_minHeight", 10, 5, 25);
+        sapphire_over_rarity = builder.comment("Rarity of overworld sapphire geodes. Default 100 (Higher numbers lower spawn chance)").defineInRange("sapphire_over_rarity", 100, 20, 100);
+        builder.pop();
+        builder.pop();
 
     }
 

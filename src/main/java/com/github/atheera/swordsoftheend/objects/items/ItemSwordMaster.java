@@ -59,7 +59,7 @@ public class ItemSwordMaster extends ItemSword {
 
     //Local variables
     private final int cooldown = 200;
-    private final int milestone1 = 10, milestone2 = 20, milestone3 = 30;
+    private final int milestone1 = 100, milestone2 = 250, milestone3 = 500;
 
     public ItemSwordMaster(Tier tier, int damage, float speed, Properties properties) {
         super(tier, damage, speed, properties);
@@ -112,11 +112,11 @@ public class ItemSwordMaster extends ItemSword {
             if (!tagcharged) { tooltip.add(new TextComponent(ChatFormatting.RED + "Sword is broken! Time until repaired: " + (cooldown - tagtimer)));
                 if (tagtimer >= cooldown && !tagcharged) { tooltip.remove(1); }
             }
-            tooltip.add(new TextComponent(white + "Durability remaining: " + purple + (nbt.getInt(tagDurability))));
+            tooltip.add(new TextComponent(white + "Durability remaining: " + purple + (nbt.getInt(tagDurability) + 1)));
             tooltip.add(new TextComponent(white + "Current level: " + purple + taglevel));
             tooltip.add(new TextComponent(white + "Current " + purple + nbt.getInt(tagWitherLvl) + white + " withers slain"));
             tooltip.add(new TextComponent(white + "Current " + purple + nbt.getInt(tagDragonLvl) + white + " dragons slain"));
-            tooltip.add(new TextComponent(white + "Slash charges remaining: " + nbt.getInt(tagCharges)));
+            tooltip.add(new TextComponent(white + "Slash charges remaining: " + purple + (nbt.getInt(tagCharges))));
             tooltip.add(new TextComponent(white + "Hold " + purple + "SHIFT" + white + " for description."));
             tooltip.add(new TextComponent(white + "Hold " + purple + "CTRL" + white + " for more information."));
         }
@@ -130,13 +130,13 @@ public class ItemSwordMaster extends ItemSword {
         CompoundTag nbt = stack.getOrCreateTag();
         int charges = nbt.getInt(tagCharges);
 
-        if(charges >= 1 && !world.isClientSide) {
-            player.getCooldowns().addCooldown(this, sec * 5);
+        if(!world.isClientSide && charges >= 1) {
             ThrownSwordSlash slash = new ThrownSwordSlash(world, player);
             slash.setItem(ItemInit.ITEM_ENTITY_SWORDSLASH.get().getDefaultInstance());
             slash.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 2.5f, 0.0f);
+            player.getCooldowns().addCooldown(this, sec * 5);
             world.addFreshEntity(slash);
-            nbt.putInt(tagCharges, charges - 1);
+            nbt.putInt(tagCharges,charges - 1);
         }
 
         return InteractionResultHolder.success(stack);
@@ -156,16 +156,16 @@ public class ItemSwordMaster extends ItemSword {
         }
         nbt.putInt(tagTimer, tagtimer = 0);
         if(checkMS(stack) == 0) { //Does V if first upgrade milestone not reached
-            setNBT(nbt, stack, 19);
+            setNBT(nbt, stack, 25);
 
         } else if(checkMS(stack) == 1) { //Does V if first upgrade milestone is reached
-            setNBT(nbt, stack, 19);
+            setNBT(nbt, stack, 25);
 
         } else if(checkMS(stack) == 2) { //Does V if second upgrade milestone is reached
-            setNBT(nbt, stack, 29);
+            setNBT(nbt, stack, 50);
 
         } else if(checkMS(stack) == 3) { //Does V if third upgrade milestone is reached
-            setNBT(nbt, stack, 39);
+            setNBT(nbt, stack, 250);
         }
         super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
     }

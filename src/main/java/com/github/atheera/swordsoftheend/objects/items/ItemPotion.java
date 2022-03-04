@@ -56,6 +56,7 @@ public class ItemPotion extends Item {
             if(item == ItemInit.ITEM_POTION_WATER.get()) player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, min*20));
             if(item == ItemInit.ITEM_POTION_SLOW.get()) player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, min*3, 4));
             if(item == ItemInit.ITEM_POTION_FALLING.get()) player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, min*10));
+            if(item == ItemInit.ITEM_POTION_INVIS.get()) player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, min*20));
         }
 
         if (player == null || !player.getAbilities().instabuild) {
@@ -123,6 +124,10 @@ public class ItemPotion extends Item {
         if(item == ItemInit.ITEM_POTION_FALLING.get()) {
             list.add(new TextComponent(blue + "Slow Falling (10:00)"));
             list.add(new TextComponent(aqua + "Brew Long Slow Falling with Enchanted Block to get this item"));
+        }
+        if(item == ItemInit.ITEM_POTION_INVIS.get()) {
+            list.add(new TextComponent(blue + "Invisibility (20:00)"));
+            list.add(new TextComponent(aqua + "Brew Long Invisibility with Enchanted Block to get this item"));
         }
 
     }

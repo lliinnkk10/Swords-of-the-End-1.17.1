@@ -34,8 +34,8 @@ public class ItemSwordLevel extends ItemSword {
 
 	public String tagLevel = "level";
 	public int level;
-	public int ms1 = 5, ms2 = 10, ms3 = 20, ms4 = 30, ms5 = 40, ms6 = 50, ms7 = 60, ms8 = 70, ms9 = 80, ms10 = 90;
-	//public int fms1 = 50, fms2 = 125, fms3 = 250, fms4 = 500, fms5 = 750, fms6 = 1000, fms7 = 1250, fms8 = 1500, fms9 = 2000, fms10 = 2500;
+	//public int ms1 = 5, ms2 = 10, ms3 = 20, ms4 = 30, ms5 = 40, ms6 = 50, ms7 = 60, ms8 = 70, ms9 = 80, ms10 = 90;
+	public int ms1 = 50, ms2 = 125, ms3 = 250, ms4 = 500, ms5 = 750, ms6 = 1000, ms7 = 1250, ms8 = 1500, ms9 = 2000, ms10 = 2500;
 
 	public String tagDragon = "dragon";
 	public boolean dragon;
@@ -144,11 +144,6 @@ public class ItemSwordLevel extends ItemSword {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 		ItemStack stack = player.getMainHandItem();
-
-		if(player.isShiftKeyDown()) {
-			stack.getOrCreateTag().putBoolean(this.tagDragon, true);
-			stack.getOrCreateTag().putBoolean(this.tagWither, true);
-		}
 
 		if(checkMS(stack) == 10) {
 			player.getCooldowns().addCooldown(this, sec*30);

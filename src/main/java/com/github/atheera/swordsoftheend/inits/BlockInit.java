@@ -1,9 +1,7 @@
 package com.github.atheera.swordsoftheend.inits;
 
 import com.github.atheera.swordsoftheend.materials.Rarities;
-import com.github.atheera.swordsoftheend.objects.blocks.BlockEnchanter;
-import com.github.atheera.swordsoftheend.objects.blocks.BlockInfuser;
-import com.github.atheera.swordsoftheend.objects.blocks.BlockItemEnchanted;
+import com.github.atheera.swordsoftheend.objects.blocks.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -90,7 +88,7 @@ public class BlockInit {
 
         // * * * * * * * * * * * * Gems * * * * * * * * * * * * \\
     public static final RegistryObject<Block> BLOCK_BUDDING_RUBY = BLOCKS.register(BUDDING_RUBY,
-        () -> new BuddingAmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST)));
+        () -> new BlockBuddingRuby(BlockBehaviour.Properties.of(Material.AMETHYST).randomTicks()));
     public static final RegistryObject<Block> BLOCK_CLUSTER_RUBY = BLOCKS.register(CLUSTER_RUBY,
         () -> new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST)
         .noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5f).lightLevel((p_152651_) -> 5).noOcclusion()));
@@ -104,7 +102,7 @@ public class BlockInit {
         () -> new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(BLOCK_CLUSTER_RUBY.get())
         .sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((p_152629_) -> 1).noOcclusion()));
     public static final RegistryObject<Block> BLOCK_BUDDING_SAPPHIRE = BLOCKS.register(BUDDING_SAPPHIRE,
-        () -> new BuddingAmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST)));
+        () -> new BlockSapphireRuby(BlockBehaviour.Properties.of(Material.AMETHYST).randomTicks()));
     public static final RegistryObject<Block> BLOCK_CLUSTER_SAPPHIRE = BLOCKS.register(CLUSTER_SAPPHIRE,
         () -> new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST)
         .noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5f).lightLevel((p_152651_) -> 5).noOcclusion()));

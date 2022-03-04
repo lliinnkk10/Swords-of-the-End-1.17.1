@@ -35,7 +35,7 @@ public class RecipeGenerators extends RecipeProvider {
             .save(consumer);
 
 */
-
+        /*
         ShapedRecipeBuilder.shaped(BlockInit.BLOCK_ENCHANT_INFUSER_GENERATOR.get())
             .pattern("MSM")
             .pattern("GFL")
@@ -62,6 +62,7 @@ public class RecipeGenerators extends RecipeProvider {
             .group("swordsoftheend")
             .unlockedBy("enchanter", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ENCHANTING_TABLE))
             .save(consumer);
+        */
     }
 }
 

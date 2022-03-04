@@ -10,7 +10,7 @@
       "item": "swordsoftheend:block_magic"
     },
     "e": {
-      "tag": "swordsoftheend:enchanted"
+      "item": "swordsoftheend:item_dust_magic"
     },
     "#": {
       "item": "minecraft:netherite_scrap"

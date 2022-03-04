@@ -53,7 +53,10 @@ public class OreGeneration {
                 BLOCK_BUD_MEDIUM_SAPPHIRE.get().defaultBlockState(),
                 BLOCK_BUD_LARGE_SAPPHIRE.get().defaultBlockState(),
                 BLOCK_CLUSTER_SAPPHIRE.get().defaultBlockState(),
-                10, 50, 69);
+                sapphire_end_minHeight.get(),
+                sapphire_end_maxHeight.get(),
+                sapphire_end_rarity.get(),
+                sapphire_end_spawn.get());
         }
 
         // Only generates in The Nether
@@ -76,7 +79,10 @@ public class OreGeneration {
                 BLOCK_BUD_MEDIUM_RUBY.get().defaultBlockState(),
                 BLOCK_BUD_LARGE_RUBY.get().defaultBlockState(),
                 BLOCK_CLUSTER_RUBY.get().defaultBlockState(),
-                90, 120, 36);
+                ruby_top_minHeight.get(),
+                ruby_top_maxHeight.get(),
+                ruby_top_rarity.get(),
+                ruby_top_spawn.get());
             generateGeode(event.getGeneration(),
                 BLOCK_CRYSTAL_RUBY.get().defaultBlockState(),
                 BLOCK_BUDDING_RUBY.get().defaultBlockState(),
@@ -86,7 +92,10 @@ public class OreGeneration {
                 BLOCK_BUD_MEDIUM_RUBY.get().defaultBlockState(),
                 BLOCK_BUD_LARGE_RUBY.get().defaultBlockState(),
                 BLOCK_CLUSTER_RUBY.get().defaultBlockState(),
-                4, 25, 53);
+                ruby_bottom_minHeight.get(),
+                ruby_bottom_maxHeight.get(),
+                ruby_bottom_rarity.get(),
+                ruby_bottom_spawn.get());
         }
 
         // Only generates in The Overworld
@@ -101,7 +110,10 @@ public class OreGeneration {
                 BLOCK_BUD_MEDIUM_SAPPHIRE.get().defaultBlockState(),
                 BLOCK_BUD_LARGE_SAPPHIRE.get().defaultBlockState(),
                 BLOCK_CLUSTER_SAPPHIRE.get().defaultBlockState(),
-                10, 30, 169);
+                sapphire_over_minHeight.get(),
+                sapphire_over_maxHeight.get(),
+                sapphire_over_rarity.get(),
+                sapphire_end_spawn.get());
 
             generateOre(event.getGeneration(),
                 OreConfiguration.Predicates.NATURAL_STONE,
@@ -183,7 +195,10 @@ public class OreGeneration {
                                       BlockState crystal, BlockState budding,
                                       BlockState innerLayer, BlockState outerLayer,
                                       BlockState smallCrystal, BlockState mediumCrystal, BlockState largeCrystal, BlockState clusterCrystal,
-                                      int minHeight, int maxHeight, int rarity) {
+                                      int minHeight, int maxHeight, int rarity,
+                                      boolean enable) {
+
+        if(!enable) return;
 
         settings.addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES,
             Feature.GEODE.configured(new GeodeConfiguration(new GeodeBlockSettings(

@@ -145,6 +145,7 @@ public class Constantz {
         public static final String TIER2_AMETHYST = "item_tier_amethyst";
         public static final String TIER2_END = "item_tier2_end";
         public static final String TIER2_EXP = "item_tier2_exp";
+        public static final String TIER2_SHADITE = "item_tier2_shadite";
         public static final String TIER2_THUNDER = "item_tier2_thunder";
 
     // * * * * * * * * * * * * Potions * * * * * * * * * * * * \\
@@ -156,14 +157,15 @@ public class Constantz {
     public static final String POTION_DAMAGE = "item_potion_damage";
     public static final String POTION_POISON = "item_potion_poison";
     public static final String POTION_FALLING = "item_potion_falling";
+    public static final String POTION_INVIS = "item_potion_invis";
 
-    // * * * * * * * * * * * * Lightsaber Crystals * * * * * * * * * * * * \\
+    // * * * * * * * * * * * * Lightsaber Items * * * * * * * * * * * * \\
     public static final String CRYSTAL_RUBY = "item_crystal_ruby";
     public static final String CRYSTAL_SAPPHIRE = "item_crystal_sapphire";
     public static final String CRYSTAL_AMETHYST = "item_crystal_amethyst";
     public static final String CRYSTAL_EMERALD = "item_crystal_emerald";
     public static final String CRYSTAL_DIAMOND = "item_crystal_diamond";
-    public static final String BATTERY_LIGHTSABER = "item_battery_lightsaber";
+    public static final String LIGHTSABER_HILT = "item_lightsaber_hilt";
 
     // * * * * * * * * * * * * Swords * * * * * * * * * * * * \\
     public static final String SWORD_BASE = "item_sword_base";
@@ -188,5 +190,6 @@ public class Constantz {
 
     // * * * * * * * * * * * * Misc * * * * * * * * * * * * \\
     public static final String SHADE_SPAWN_EGG = "item_shade_spawn_egg";
+    public static final String TOOL_CHISEL = "item_tool_chisel";
 
 }

@@ -14,6 +14,9 @@ public enum ModToolTier implements Tier {
 	BASE(1, 2420, 1.0f, 0.0f, 20, () -> {
 		return Ingredient.of(Items.NETHERITE_INGOT);
 	}),
+	CHISEL(2, 5, 0.3f, 0.0f, 0, () -> {
+		return Ingredient.of(Items.IRON_INGOT);
+	}),
 	TIERONE(1, 3269, 1.0f, 0.0f, 0, () -> {
 		return Ingredient.of(Items.NETHERITE_INGOT);
 	}),

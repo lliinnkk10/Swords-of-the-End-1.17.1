@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "O#O",
+    "XO@",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "swordsoftheend:item_potion_strength"
+    },
+    "X": {
+      "item": "swordsoftheend:item_potion_slow"
+    },
+    "O": {
+      "item": "swordsoftheend:item_tier_shadite"
+    },
+    "@": {
+      "item": "swordsoftheend:item_potion_invis"
+    }
+  },
+  "result": {
+    "item": "swordsoftheend:item_tier2_shadite"
+  }
+}

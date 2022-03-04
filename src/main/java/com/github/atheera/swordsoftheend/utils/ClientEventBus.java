@@ -13,7 +13,7 @@ public class ClientEventBus {
 
     public static void registerPropertyOverride() {
         ItemProperties.register(ItemInit.ITEM_SWORD_LEVEL.get(), new ResourceLocation(MOD_ID, "level"), new SwordPowerNBT());
-        ItemProperties.register(ItemInit.ITEM_SWORD_SABER.get(), new ResourceLocation(MOD_ID, "saber"), new LightsaberNBT());
+        //ItemProperties.register(ItemInit.ITEM_SWORD_SABER.get(), new ResourceLocation(MOD_ID, "saber"), new LightsaberNBT());
     }
 
 }

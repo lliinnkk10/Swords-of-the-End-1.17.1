@@ -11,7 +11,6 @@ import com.github.atheera.swordsoftheend.world.OreGeneration;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -44,7 +43,6 @@ public class SOTE {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "swordsoftheend";
     public static SOTE instance;
-    public static final ResourceLocation DISTANCE_PROPERTY = new ResourceLocation(MOD_ID, "distance");
 
     public SOTE() {
 
@@ -132,6 +130,7 @@ public class SOTE {
         BrewingRecipeRegistry.addRecipe(new PoisonPotion());
         BrewingRecipeRegistry.addRecipe(new WaterPotion());
         BrewingRecipeRegistry.addRecipe(new SlowPotion());
+        BrewingRecipeRegistry.addRecipe(new InvisPotion());
     }
 
 }

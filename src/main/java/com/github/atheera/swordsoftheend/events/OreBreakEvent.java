@@ -1,5 +1,7 @@
 package com.github.atheera.swordsoftheend.events;
 
+import com.github.atheera.swordsoftheend.inits.ItemInit;
+import com.github.atheera.swordsoftheend.objects.items.ItemToolChisel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -66,7 +68,9 @@ public class OreBreakEvent {
             BODR = check(e, BLOCK_ORE_DEEP_RUBY),
             BOSA = check(e, BLOCK_ORE_SAPPHIRE),
             BODS = check(e, BLOCK_ORE_DEEP_SAPPHIRE),
-            BONS = check(e, BLOCK_ORE_NETHER_SHADITE);
+            BONS = check(e, BLOCK_ORE_NETHER_SHADITE),
+            BCCS = check(e, BLOCK_CLUSTER_SAPPHIRE),
+            BCCR = check(e, BLOCK_CLUSTER_RUBY);
 
         if(item instanceof PickaxeItem) { // Only applied if blocks are broken with pickaxe
             if(stack.isEnchanted()) { // Checks if pickaxe is enchanted
@@ -82,8 +86,8 @@ public class OreBreakEvent {
                             if (BOL || BODL) spawnItem(e, IILR, 1);
                             if (BOS || BONS) spawnItem(e, IISR, 1);
                             if (BOM || BODM) spawnItem(e, IDME, 2);
-                            if (BOR || BODR) spawnItem(e, IGRS, 2);
-                            if (BOSA || BODS)spawnItem(e, IGSS, 2);
+                            if (BOR || BODR || BCCR) spawnItem(e, IGRS, 2);
+                            if (BOSA || BODS || BCCS)spawnItem(e, IGSS, 2);
                         }
                         case 2 -> {
                             e.setExpToDrop(8);
@@ -91,8 +95,8 @@ public class OreBreakEvent {
                             if (BOL || BODL) spawnItem(e, IILR, 2);
                             if (BOS || BONS) spawnItem(e, IISR, 2);
                             if (BOM || BODM) spawnItem(e, IDME, 4);
-                            if (BOR || BODR) spawnItem(e, IGRS, 4);
-                            if (BOSA || BODS)spawnItem(e, IGSS, 4);
+                            if (BOR || BODR || BCCR) spawnItem(e, IGRS, 4);
+                            if (BOSA || BODS || BCCS)spawnItem(e, IGSS, 4);
                         }
                         case 3 -> {
                             e.setExpToDrop(12);
@@ -100,8 +104,8 @@ public class OreBreakEvent {
                             if (BOL || BODL) spawnItem(e, IILR, 3);
                             if (BOS || BONS) spawnItem(e, IISR, 3);
                             if (BOM || BODM) spawnItem(e, IDME, 6);
-                            if (BOR || BODR) spawnItem(e, IGRS, 6);
-                            if (BOSA || BODS)spawnItem(e, IGSS, 6);
+                            if (BOR || BODR || BCCR) spawnItem(e, IGRS, 6);
+                            if (BOSA || BODS || BCCS)spawnItem(e, IGSS, 6);
                         }
                     }
                 }
@@ -121,6 +125,8 @@ public class OreBreakEvent {
                         if (BOR)  spawnItem(e, ITEM_BLOCK_ORE_RUBY.get().getDefaultInstance(), 0);
                         if (BODR) spawnItem(e, ITEM_BLOCK_ORE_DEEP_RUBY.get().getDefaultInstance(), 0);
                         if (BONS) spawnItem(e, ITEM_BLOCK_ORE_NETHER_SHADITE.get().getDefaultInstance(), 0);
+                        if (BCCS) spawnItem(e, ITEM_BLOCK_CRYSTAL_SAPPHIRE.get().getDefaultInstance(), 0);
+                        if (BCCR) spawnItem(e, ITEM_BLOCK_CRYSTAL_RUBY.get().getDefaultInstance(), 0);
                     }
                 }
             } else {
@@ -140,7 +146,18 @@ public class OreBreakEvent {
         Player player = e.getPlayer();
         ItemStack stack = player.getMainHandItem();
         Item item = stack.getItem();
-        if(item instanceof PickaxeItem) {
+
+        // Chisel
+        if(item instanceof ItemToolChisel) {
+/*
+            if(e.getState() == BLOCK_CRYSTAL_RUBY_E.get().defaultBlockState()) spawnItem(e, ITEM_CRYSTAL_RUBY.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_CRYSTAL_SAPPHIRE_E.get().defaultBlockState()) spawnItem(e, ITEM_CRYSTAL_SAPPHIRE.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_CRYSTAL_AMETHYST_E.get().defaultBlockState()) spawnItem(e, ITEM_CRYSTAL_AMETHYST.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_GEM_DIAMOND_E.get().defaultBlockState()) spawnItem(e, ITEM_CRYSTAL_DIAMOND.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_GEM_EMERALD_E.get().defaultBlockState()) spawnItem(e, ITEM_CRYSTAL_EMERALD.get().getDefaultInstance(), 0);
+        */
+        // Pickaxe
+        } else if(item instanceof PickaxeItem) {
 
             if(e.getState() == BLOCK_RAW_SHADITE.get().defaultBlockState())
                 spawnItem(e, ITEM_BLOCK_RAW_SHADITE.get().getDefaultInstance(), 0);
@@ -182,6 +199,10 @@ public class OreBreakEvent {
                 spawnItem(e, ITEM_BLOCK_GEM_ULTIMATE.get().getDefaultInstance(), 0);
             if(e.getState() == BLOCK_INGOT_ULTIMATE.get().defaultBlockState())
                 spawnItem(e, ITEM_BLOCK_INGOT_ULTIMATE.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_BUDDING_RUBY.get().defaultBlockState())
+                spawnItem(e, ITEM_BLOCK_BUDDING_RUBY.get().getDefaultInstance(), 0);
+            if(e.getState() == BLOCK_BUDDING_SAPPHIRE.get().defaultBlockState())
+                spawnItem(e, ITEM_BLOCK_BUDDING_SAPPHIRE.get().getDefaultInstance(), 0);
         }
 
     }
@@ -200,7 +221,6 @@ public class OreBreakEvent {
             }
             case 1 -> {
                 amount = rand.nextInt(2)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);
@@ -208,7 +228,6 @@ public class OreBreakEvent {
             }
             case 2 -> {
                 amount = rand.nextInt(3)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);
@@ -216,7 +235,6 @@ public class OreBreakEvent {
             }
             case 3 -> {
                 amount = rand.nextInt(4)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);
@@ -224,7 +242,6 @@ public class OreBreakEvent {
             }
             case 4 -> {
                 amount = rand.nextInt(5)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);
@@ -232,7 +249,6 @@ public class OreBreakEvent {
             }
             case 5 -> {
                 amount = rand.nextInt(6)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);
@@ -240,7 +256,6 @@ public class OreBreakEvent {
             }
             case 6 -> {
                 amount = rand.nextInt(7)+1;
-                System.out.println(amount);
                 for(int i = 0; i < amount; i++) {
                     ItemEntity entity = new ItemEntity(world, x, y, z, stack);
                     world.addFreshEntity(entity);

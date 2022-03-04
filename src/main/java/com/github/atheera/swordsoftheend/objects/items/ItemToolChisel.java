@@ -1,30 +1,21 @@
 package com.github.atheera.swordsoftheend.objects.items;
 
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraft.world.item.Item.Properties;
+public class ItemToolChisel extends PickaxeItem {
 
-public class ItemToolChisel extends Item {
 
-    public ItemToolChisel(Properties p_41383_) {
-        super(p_41383_);
+    public ItemToolChisel(Tier tier, int damage, float speed, Properties prop) {
+        super(tier, damage, speed, prop);
     }
 
-    @Override
-    public boolean showDurabilityBar(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public int getUseDuration(ItemStack stack) {
-        return 50;
-    }
 
 
 }

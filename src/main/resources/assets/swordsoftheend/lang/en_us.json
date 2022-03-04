@@ -33,13 +33,14 @@
 	"item.swordsoftheend.item_tier_end": "Enchanted Ender Pearl",
 	"item.swordsoftheend.item_tier_exp": "Liquid Experience",
 	"item.swordsoftheend.item_tier_goldrod": "Golden Reinforcement",
-	"item.swordsoftheend.item_tier_shadite": "Shadow",
+	"item.swordsoftheend.item_tier_shadite": "Dismembered Shadow",
 	"item.swordsoftheend.item_tier_thunder": "Energized Conductor",
 	"item.swordsoftheend.item_tier2_thunder": "Enchanted Energized Conductor",
 	"item.swordsoftheend.item_tier_lumin": "Luminessence",
 	"item.swordsoftheend.item_tier_ruby": "Magma ball",
 	"item.swordsoftheend.item_tier_sapphire": "Water Essence",
 	"item.swordsoftheend.item_tier2_end": "Dimensional Rift",
+	"item.swordsoftheend.item_tier2_shadite": "Ethereal Essence",
 	"item.swordsoftheend.item_tier2_exp": "Condensed Experience",
 	"item.swordsoftheend.item_tier_tf_power": "Triforce of Power",
 	"item.swordsoftheend.item_tier_tf_wisdom": "Triforce of Wisdom",
@@ -53,6 +54,7 @@
 	"item.swordsoftheend.item_potion_damage": "Potion of Harming",
 	"item.swordsoftheend.item_potion_poison": "Potion of Poison",
 	"item.swordsoftheend.item_potion_falling": "Potion of Slow Falling",
+	"item.swordsoftheend.item_potion_invis": "Potion of Invisibility",
 
 	"item.swordsoftheend.item_core_amethyst": "Amethyst Core",
 	"item.swordsoftheend.item_core_base": "Base Core",
@@ -69,11 +71,11 @@
 	"item.swordsoftheend.item_core_master": "Master Core",
 	"item.swordsoftheend.item_core_saber": "Lightsaber Core",
 
-	"item.swordsoftheend.item_crystal_ruby": "Ruby Crystal",
-	"item.swordsoftheend.item_crystal_sapphire": "Sapphire Crystal",
-	"item.swordsoftheend.item_crystal_amethyst": "Amethyst Crystal",
-	"item.swordsoftheend.item_crystal_emerald": "Emerald Crystal",
-	"item.swordsoftheend.item_crystal_diamond": "Diamond Crystal",
+	"item.swordsoftheend.item_crystal_ruby": "Ruby Light Crystal",
+	"item.swordsoftheend.item_crystal_sapphire": "Sapphire Light Crystal",
+	"item.swordsoftheend.item_crystal_amethyst": "Amethyst Light Crystal",
+	"item.swordsoftheend.item_crystal_emerald": "Emerald Light Crystal",
+	"item.swordsoftheend.item_crystal_diamond": "Diamond Light Crystal",
 
 	"item.swordsoftheend.item_sword_base": "Basic Sword",
 	"item.swordsoftheend.item_sword_emerald": "Death",
@@ -90,6 +92,9 @@
 	"item.swordsoftheend.item_sword_ultimate": "Cthulhu's End",
 	"item.swordsoftheend.item_sword_shadite": "Ethereal Blade",
 	"item.swordsoftheend.item_sword_master": "Master Sword",
+
+	"item.swordsoftheend.item_tool_chisel": "Gem Chisel",
+	"item.swordsoftheend.item_lightsaber_hilt": "Lightsaber Hilt",
 
 	"item.swordsoftheend.item_shade_spawn_egg": "Spawn Shade Entity",
 
@@ -117,7 +122,9 @@
 	"block.swordsoftheend.block_smelt_lumin_e": "Enchanted Luminite Block",
 
 	"block.swordsoftheend.block_cluster_ruby": "Ruby Cluster",
+	"block.swordsoftheend.block_budding_ruby": "Budding Ruby",
 	"block.swordsoftheend.block_cluster_sapphire": "Sapphire Cluster",
+	"block.swordsoftheend.block_budding_sapphire": "Budding Sapphire",
 	"block.swordsoftheend.block_crystal_ruby": "Ruby Crystal",
 	"block.swordsoftheend.block_crystal_sapphire": "Sapphire Crystal",
 	"block.swordsoftheend.block_ore_ruby": "Ruby Ore",
@@ -132,8 +139,8 @@
 	"block.swordsoftheend.block_gem_emerald_e": "Enchanted Emerald Block",
 	"block.swordsoftheend.block_end_e": "Enchanted Ender Pearl Block",
 
-	"block.swordsoftheend.block_infuser": "Enchantment Infusion Generator",
-	"block.swordsoftheend.block_enchanter": "Enchantment Infuser WIP",
+	"block.swordsoftheend.block_infuser": "Not Working Properly!",
+	"block.swordsoftheend.block_enchanter": "Not Working Properly!",
 
 	"block.swordsoftheend.block_bud_large_ruby": "Large Ruby Bud",
 	"block.swordsoftheend.block_bud_medium_ruby": "Medium Ruby Bud",
